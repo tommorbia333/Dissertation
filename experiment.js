@@ -55,6 +55,7 @@ const pdf_files = [
 ];
 
 const selected_pdf = pdf_files[Math.floor(Math.random() * pdf_files.length)];
+const selected_pdf_url = encodeURI(selected_pdf);
 
 const temporal_scale = ["1 Definitely No", "2 Probably No", "3 Unsure", "4 Probably Yes", "5 Definitely Yes"];
 const causal_scale = ["1 Not at all", "2 Slightly", "3 Moderately", "4 Strongly", "5 Very strongly"];
@@ -386,8 +387,9 @@ const view_pdf = {
   type: jsPsychHtmlButtonResponse,
   stimulus: `
     <div class="pdf-wrap">
-      <iframe class="pdf-frame" src="${selected_pdf}" title="Story PDF"></iframe>
+      <iframe class="pdf-frame" src="${selected_pdf_url}" title="Story PDF"></iframe>
     </div>
+    <p>If the document does not appear below, open it in a new tab: <a href="${selected_pdf_url}" target="_blank" rel="noopener noreferrer">Open story PDF</a></p>
   `,
   choices: ["Continue"],
   prompt: "<p>Please read the document and click continue.</p>"
