@@ -61,6 +61,103 @@ const causal_scale = ["1 Not at all", "2 Slightly", "3 Moderately", "4 Strongly"
 const counterfactual_scale = ["1 Much less likely", "2 Less likely", "3 No change/Unsure", "4 More likely", "5 Much more likely"];
 const y_n_u = ["Yes", "No", "Unsure"];
 
+// Fallback registration for Cognition deployments where external custom plugins can fail to load.
+if (typeof window.jsPsychCausalPairScale === "undefined" && typeof window.jsPsychModule !== "undefined") {
+  (function registerCausalPairScaleFallback(jspsych) {
+    const info = {
+      name: "causal-pair-scale",
+      parameters: {
+        instruction: {
+          type: jspsych.ParameterType.HTML_STRING,
+          default: "Indicate the likelihood that the event on the left causally contributed to the event on the right."
+        },
+        left_event: {
+          type: jspsych.ParameterType.HTML_STRING,
+          default: undefined
+        },
+        right_event: {
+          type: jspsych.ParameterType.HTML_STRING,
+          default: undefined
+        },
+        labels: {
+          type: jspsych.ParameterType.STRING,
+          array: true,
+          default: []
+        },
+        required: {
+          type: jspsych.ParameterType.BOOL,
+          default: true
+        },
+        button_label: {
+          type: jspsych.ParameterType.STRING,
+          default: "Continue"
+        }
+      }
+    };
+
+    class CausalPairScalePlugin {
+      constructor(jsPsych) {
+        this.jsPsych = jsPsych;
+      }
+
+      trial(display_element, trial) {
+        const trialStart = performance.now();
+        const optionsHtml = trial.labels
+          .map((label, i) => {
+            return `
+            <label class="causal-option">
+              <input type="radio" name="causal_scale" value="${i}">
+              <span>${label}</span>
+            </label>
+          `;
+          })
+          .join("");
+
+        display_element.innerHTML = `
+        <div class="causal-card">
+          <h2>2) Pairwise Causal Contribution Questions</h2>
+          <p class="causal-instruction">${trial.instruction}</p>
+          <div class="causal-events">
+            <div class="causal-event-box causal-left-event">${trial.left_event}</div>
+            <div class="causal-arrow" aria-hidden="true">&rarr;</div>
+            <div class="causal-event-box causal-right-event">${trial.right_event}</div>
+          </div>
+          <div class="causal-scale" role="group" aria-label="Causal contribution scale">
+            ${optionsHtml}
+          </div>
+          <p id="causal-error" class="causal-error" style="display:none;">Please choose one response before continuing.</p>
+          <button id="causal-next" class="jspsych-btn">${trial.button_label}</button>
+        </div>
+      `;
+
+        display_element.querySelector("#causal-next").addEventListener("click", () => {
+          const selected = display_element.querySelector('input[name="causal_scale"]:checked');
+          if (!selected && trial.required) {
+            display_element.querySelector("#causal-error").style.display = "block";
+            return;
+          }
+
+          const rt = Math.round(performance.now() - trialStart);
+          const responseIndex = selected ? Number(selected.value) : null;
+          const trialData = {
+            left_event: trial.left_event,
+            right_event: trial.right_event,
+            response_index: responseIndex,
+            response_label: responseIndex !== null ? trial.labels[responseIndex] : null,
+            rt: rt
+          };
+
+          display_element.innerHTML = "";
+          this.jsPsych.finishTrial(trialData);
+        });
+      }
+    }
+
+    CausalPairScalePlugin.info = info;
+    window.jsPsychCausalPairScale = CausalPairScalePlugin;
+  })(window.jsPsychModule);
+}
+
 const medicalShortQuestions = {
   temporal: [
     { prompt: "Did the hospital administrator approving a policy to reduce overnight staffing levels occur before the maintenance contractor disabling a ventilator alarm during a routine test?", labels: temporal_scale, required: true },

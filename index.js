@@ -2,7 +2,7 @@
 // This bootstraps required assets and then runs experiment.js.
 (function bootstrapCognitionTask() {
   const head = document.head || document.getElementsByTagName("head")[0];
-  const isCognitionHost = /(^|\.)cognition\.run$/i.test(window.location.hostname);
+  let hasShownFatalError = false;
 
   function ensureStylesheet(href) {
     const existing = document.querySelector(`link[rel="stylesheet"][href="${href}"]`);
@@ -38,35 +38,70 @@
     });
   }
 
-  function waitFor(checkFn, timeoutMs = 2000, pollMs = 50) {
-    const start = performance.now();
-    return new Promise((resolve) => {
-      const tick = () => {
-        if (checkFn()) {
-          resolve(true);
-          return;
-        }
-        if (performance.now() - start >= timeoutMs) {
-          resolve(false);
-          return;
-        }
-        setTimeout(tick, pollMs);
-      };
-      tick();
-    });
+  function replaceBodyHtml(html) {
+    if (document.body) {
+      document.body.innerHTML = html;
+      return;
+    }
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        document.body.innerHTML = html;
+      },
+      { once: true }
+    );
+  }
+
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   function showSetupError(title, details) {
+    hasShownFatalError = true;
     const detailsHtml = details
       ? `<p style="margin-top:8px;font-size:14px;line-height:1.45;">${details}</p>`
       : "";
-    document.body.innerHTML = `
+    replaceBodyHtml(`
       <div style="max-width:760px;margin:40px auto;padding:18px 20px;border:1px solid #fecaca;border-radius:10px;background:#fef2f2;color:#7f1d1d;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
         <h2 style="margin:0 0 8px 0;font-size:20px;">${title}</h2>
         ${detailsHtml}
       </div>
-    `;
+    `);
   }
+
+  function showRuntimeError(errorLike, contextLabel) {
+    if (hasShownFatalError) return;
+    const stack =
+      errorLike && typeof errorLike === "object" && "stack" in errorLike
+        ? errorLike.stack
+        : null;
+    const message = errorLike && typeof errorLike === "object" && "message" in errorLike
+      ? errorLike.message
+      : String(errorLike);
+    const details = [
+      `<strong>${escapeHtml(contextLabel)}</strong>`,
+      `<span>${escapeHtml(message)}</span>`,
+      stack ? `<pre style="margin-top:10px;white-space:pre-wrap;font-size:12px;line-height:1.4;">${escapeHtml(stack)}</pre>` : ""
+    ].join("<br>");
+    showSetupError("A runtime error occurred.", details);
+  }
+
+  window.addEventListener("error", (event) => {
+    const location = event.filename
+      ? `${event.filename}:${event.lineno || 0}:${event.colno || 0}`
+      : "unknown location";
+    const context = `Uncaught error at ${location}`;
+    showRuntimeError(event.error || event.message || "Unknown script error", context);
+  });
+
+  window.addEventListener("unhandledrejection", (event) => {
+    showRuntimeError(event.reason || "Unhandled promise rejection", "Unhandled promise rejection");
+  });
 
   async function run() {
     ensureStylesheet("dist/jspsych.css");
@@ -82,18 +117,10 @@
       { src: "plugin-causal-pair-scale.js", ready: () => typeof jsPsychCausalPairScale !== "undefined" }
     ];
 
-    if (isCognitionHost) {
-      // In Cognition editor mode, dependencies should be configured via jsPsych version + External JS/CSS.
-      await waitFor(
-        () => requiredScripts.every((item) => item.ready()),
-        2500
-      );
-    } else {
-      // Local/static fallback: load missing scripts from repository paths.
-      for (const item of requiredScripts) {
-        if (!item.ready()) {
-          await loadScript(item.src);
-        }
+    // Load missing scripts from repository paths in order.
+    for (const item of requiredScripts) {
+      if (!item.ready()) {
+        await loadScript(item.src);
       }
     }
 
@@ -102,9 +129,7 @@
       .map((item) => item.src);
 
     if (missingDependencies.length > 0) {
-      const details = isCognitionHost
-        ? `Cognition did not preload required files: ${missingDependencies.join(", ")}. Add them under External JS/CSS (or use GitHub deployment).`
-        : `Failed to load required files: ${missingDependencies.join(", ")}.`;
+      const details = `Failed to load required files: ${missingDependencies.join(", ")}.`;
       showSetupError("Experiment setup is incomplete.", details);
       throw new Error(details);
     }
@@ -114,22 +139,18 @@
       return;
     }
 
-    if (isCognitionHost) {
-      const experimentReady = await waitFor(() => typeof getParam === "function", 2500);
-      if (!experimentReady) {
-        const details =
-          "Add experiment.js to External JS/CSS, or paste experiment.js directly into Task Code.";
-        showSetupError("Experiment script is missing.", details);
-        throw new Error(details);
-      }
-      return;
-    }
-
     await loadScript("experiment.js");
+
+    if (typeof getParam !== "function") {
+      const details =
+        "Loaded experiment.js but getParam() was not defined. Ensure experiment.js is the expected file.";
+      showSetupError("Experiment script did not initialize.", details);
+      throw new Error(details);
+    }
   }
 
   run().catch((error) => {
     console.error("Cognition bootstrap failed:", error);
-    document.body.innerHTML = `<pre style="white-space: pre-wrap; color: #b91c1c; font-family: sans-serif;">${String(error)}</pre>`;
+    showRuntimeError(error, "Bootstrap failure");
   });
 })();
