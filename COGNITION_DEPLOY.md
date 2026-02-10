@@ -54,4 +54,5 @@ This repository now includes:
 ## Example participant link
 
 ```text
-https://<your-task>.cognition.run/?participant_id=123&study_id=ABC&session_id=001&compl
+https://<your-task>.cognition.run/?participant_id=123&study_id=ABC&session_id=001&completion_url=https%3A%2F%2Fapp.prolific.com%2Fsubmissions%2Fcomplete%3Fcc%3DXXXXXXX
+```
