@@ -2,6 +2,7 @@
 // This bootstraps required assets and then runs experiment.js.
 (function bootstrapCognitionTask() {
   const head = document.head || document.getElementsByTagName("head")[0];
+  const isCognitionHost = /(^|\.)cognition\.run$/i.test(window.location.hostname);
 
   function ensureStylesheet(href) {
     const existing = document.querySelector(`link[rel="stylesheet"][href="${href}"]`);
@@ -37,6 +38,36 @@
     });
   }
 
+  function waitFor(checkFn, timeoutMs = 2000, pollMs = 50) {
+    const start = performance.now();
+    return new Promise((resolve) => {
+      const tick = () => {
+        if (checkFn()) {
+          resolve(true);
+          return;
+        }
+        if (performance.now() - start >= timeoutMs) {
+          resolve(false);
+          return;
+        }
+        setTimeout(tick, pollMs);
+      };
+      tick();
+    });
+  }
+
+  function showSetupError(title, details) {
+    const detailsHtml = details
+      ? `<p style="margin-top:8px;font-size:14px;line-height:1.45;">${details}</p>`
+      : "";
+    document.body.innerHTML = `
+      <div style="max-width:760px;margin:40px auto;padding:18px 20px;border:1px solid #fecaca;border-radius:10px;background:#fef2f2;color:#7f1d1d;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+        <h2 style="margin:0 0 8px 0;font-size:20px;">${title}</h2>
+        ${detailsHtml}
+      </div>
+    `;
+  }
+
   async function run() {
     ensureStylesheet("dist/jspsych.css");
     ensureStylesheet("style.css");
@@ -44,29 +75,4 @@
     const requiredScripts = [
       { src: "dist/jspsych.js", ready: () => typeof initJsPsych === "function" },
       { src: "dist/plugin-html-button-response.js", ready: () => typeof jsPsychHtmlButtonResponse !== "undefined" },
-      { src: "dist/plugin-instructions.js", ready: () => typeof jsPsychInstructions !== "undefined" },
-      { src: "dist/plugin-survey-html-form.js", ready: () => typeof jsPsychSurveyHtmlForm !== "undefined" },
-      { src: "dist/plugin-survey-likert.js", ready: () => typeof jsPsychSurveyLikert !== "undefined" },
-      { src: "dist/plugin-call-function.js", ready: () => typeof jsPsychCallFunction !== "undefined" },
-      { src: "plugin-causal-pair-scale.js", ready: () => typeof jsPsychCausalPairScale !== "undefined" }
-    ];
-
-    for (const item of requiredScripts) {
-      if (!item.ready()) {
-        await loadScript(item.src);
-      }
-    }
-
-    // If experiment logic already ran (e.g. preloaded by host), do not start twice.
-    if (typeof getParam === "function") {
-      return;
-    }
-
-    await loadScript("experiment.js");
-  }
-
-  run().catch((error) => {
-    console.error("Cognition bootstrap failed:", error);
-    document.body.innerHTML = `<pre style="white-space: pre-wrap; color: #b91c1c; font-family: sans-serif;">${String(error)}</pre>`;
-  });
-})();
+      { src: "
