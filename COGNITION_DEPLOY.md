@@ -6,6 +6,7 @@ This project is now configured to run as a static jsPsych task on Cognition.run.
 
 - Removed local path rewrite logic from `index.html`.
 - Removed custom `fetch` submission flow from `experiment.js`.
+- Added `index.js` as explicit Cognition source entrypoint bootstrap.
 - Data is now recorded via normal jsPsych trial data only (Cognition captures runs automatically).
 - Added explicit `final_status` metadata:
   - `"completed"` for participants who pass comprehension.
@@ -29,7 +30,7 @@ This project is now configured to run as a static jsPsych task on Cognition.run.
 ### Option B: GitHub integration (recommended)
 
 1. Put this folder in a GitHub repository root.
-2. Keep `index.html` at repo root.
+2. Keep `index.js` and `index.html` at repo root.
 3. Add repository secret `PERSONAL_ACCESS_TOKEN` in GitHub Actions secrets.
 4. Set that secret value to your token from `https://www.cognition.run/account`.
 5. Push your repo (or run the workflow manually).
@@ -53,5 +54,4 @@ This repository now includes:
 ## Example participant link
 
 ```text
-https://<your-task>.cognition.run/?participant_id=123&study_id=ABC&session_id=001&completion_url=https%3A%2F%2Fapp.prolific.com%2Fsubmissions%2Fcomplete%3Fcc%3DXXXXXXX
-```
+https://<your-task>.cognition.run/?participant_id=123&study_id=ABC&session_id=001&compl
