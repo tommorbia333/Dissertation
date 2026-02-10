@@ -75,4 +75,61 @@
     const requiredScripts = [
       { src: "dist/jspsych.js", ready: () => typeof initJsPsych === "function" },
       { src: "dist/plugin-html-button-response.js", ready: () => typeof jsPsychHtmlButtonResponse !== "undefined" },
-      { src: "
+      { src: "dist/plugin-instructions.js", ready: () => typeof jsPsychInstructions !== "undefined" },
+      { src: "dist/plugin-survey-html-form.js", ready: () => typeof jsPsychSurveyHtmlForm !== "undefined" },
+      { src: "dist/plugin-survey-likert.js", ready: () => typeof jsPsychSurveyLikert !== "undefined" },
+      { src: "dist/plugin-call-function.js", ready: () => typeof jsPsychCallFunction !== "undefined" },
+      { src: "plugin-causal-pair-scale.js", ready: () => typeof jsPsychCausalPairScale !== "undefined" }
+    ];
+
+    if (isCognitionHost) {
+      // In Cognition editor mode, dependencies should be configured via jsPsych version + External JS/CSS.
+      await waitFor(
+        () => requiredScripts.every((item) => item.ready()),
+        2500
+      );
+    } else {
+      // Local/static fallback: load missing scripts from repository paths.
+      for (const item of requiredScripts) {
+        if (!item.ready()) {
+          await loadScript(item.src);
+        }
+      }
+    }
+
+    const missingDependencies = requiredScripts
+      .filter((item) => !item.ready())
+      .map((item) => item.src);
+
+    if (missingDependencies.length > 0) {
+      const details = isCognitionHost
+        ? `Cognition did not preload required files: ${missingDependencies.join(", ")}. Add them under External JS/CSS (or use GitHub deployment).`
+        : `Failed to load required files: ${missingDependencies.join(", ")}.`;
+      showSetupError("Experiment setup is incomplete.", details);
+      throw new Error(details);
+    }
+
+    // If experiment logic already ran (e.g. preloaded by host), do not start twice.
+    if (typeof getParam === "function") {
+      return;
+    }
+
+    if (isCognitionHost) {
+      const experimentReady = await waitFor(() => typeof getParam === "function", 2500);
+      if (!experimentReady) {
+        const details =
+          "Add experiment.js to External JS/CSS, or paste experiment.js directly into Task Code.";
+        showSetupError("Experiment script is missing.", details);
+        throw new Error(details);
+      }
+      return;
+    }
+
+    await loadScript("experiment.js");
+  }
+
+  run().catch((error) => {
+    console.error("Cognition bootstrap failed:", error);
+    document.body.innerHTML = `<pre style="white-space: pre-wrap; color: #b91c1c; font-family: sans-serif;">${String(error)}</pre>`;
+  });
+})();
