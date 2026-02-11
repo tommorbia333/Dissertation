@@ -38,6 +38,21 @@
     });
   }
 
+  async function loadScriptFromCandidates(label, candidateSources) {
+    const failures = [];
+    for (const source of candidateSources) {
+      try {
+        await loadScript(source);
+        return source;
+      } catch (error) {
+        failures.push(`${source}: ${error && error.message ? error.message : String(error)}`);
+      }
+    }
+    const details = `${label} could not be loaded from any candidate path (${candidateSources.join(", ")}).`;
+    const cause = failures.length > 0 ? ` Attempts: ${failures.join(" | ")}` : "";
+    throw new Error(`${details}${cause}`);
+  }
+
   function replaceBodyHtml(html) {
     if (document.body) {
       document.body.innerHTML = html;
@@ -139,7 +154,13 @@
       return;
     }
 
-    await loadScript("experiment.js");
+    const experimentScriptCandidates = [
+      "experiment.js",
+      "./experiment.js",
+      "Experiment/experiment.js",
+      "jsPsych/experiment.js"
+    ];
+    await loadScriptFromCandidates("experiment.js", experimentScriptCandidates);
 
     if (typeof getParam !== "function") {
       const details =

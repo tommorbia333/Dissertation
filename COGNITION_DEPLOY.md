@@ -18,6 +18,7 @@ This project is now configured to run as a static jsPsych task on Cognition.run.
 
 1. Create a new task in Cognition.
 2. Upload required files in the task assets/external files area:
+   - `experiment.js`
    - `style.css`
    - `disqualified.html`
    - `plugin-causal-pair-scale.js`
