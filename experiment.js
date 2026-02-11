@@ -3,7 +3,7 @@
 
 
 // Code includes the following:
-// - Get the story from PDF (randomized)
+// - Get a randomized story from in-code text
 // - Get the questions for the specific story
 // - Comprehension check and disqualification
 // - Demographics
@@ -42,20 +42,6 @@ const participantMeta = {
   study_id: getParam("study_id") || getParam("STUDY_ID") || "",
   session_id: getParam("session_id") || getParam("SESSION_ID") || ""
 };
-
-const pdf_files = [
-  "Stories/Coastal Floodgate Heavy Fluff.pdf",
-  "Stories/Coastal_Floodgate_Heavy_Fluff_Thesis.pdf",
-  "Stories/Medical Medium Fluff.pdf",
-  "Stories/Medical Medium Fluff NonLinear.pdf",
-  "Stories/Workplace Short Linear.pdf",
-  "Stories/Workplace Short NonLinear.pdf",
-  "Stories/Medical Short Linear.pdf",
-  "Stories/Medical Short NonLinear.pdf"
-];
-
-const selected_pdf = pdf_files[Math.floor(Math.random() * pdf_files.length)];
-const selected_pdf_url = encodeURI(selected_pdf);
 
 const temporal_scale = ["1 Definitely No", "2 Probably No", "3 Unsure", "4 Probably Yes", "5 Definitely Yes"];
 const causal_scale = ["1 Not at all", "2 Slightly", "3 Moderately", "4 Strongly", "5 Very strongly"];
@@ -291,245 +277,64 @@ const coastalQuestions = {
   ]
 };
 
-const questionsByStory = {
-  "Stories/Medical Short Linear.pdf": medicalShortQuestions,
-  "Stories/Medical Short NonLinear.pdf": medicalShortQuestions,
-  "Stories/Medical Medium Fluff.pdf": medicalMediumQuestions,
-  "Stories/Medical Medium Fluff NonLinear.pdf": medicalMediumQuestions,
-  "Stories/Workplace Short Linear.pdf": workplaceQuestions,
-  "Stories/Workplace Short NonLinear.pdf": workplaceQuestions,
-  "Stories/Coastal Floodgate Heavy Fluff.pdf": coastalQuestions,
-  "Stories/Coastal_Floodgate_Heavy_Fluff_Thesis.pdf": coastalQuestions
-};
-
-const currentQuestions = questionsByStory[selected_pdf];
-const q = currentQuestions || questionsByStory["Stories/Medical Short Linear.pdf"];
-
-if (!currentQuestions) {
-  console.warn("No questions defined for story:", selected_pdf, "- using Medical Short as fallback.");
-}
-
-const jsPsych = initJsPsych({
-  on_finish: () => {
-    if (runtimeConfig.debug) {
-      jsPsych.data.displayData();
-    }
-  }
-});
-
-jsPsych.data.addProperties({
-  ...participantMeta,
-  story_shown: selected_pdf
-});
-
-let comprehensionResult = {
-  passed: false,
-  correctCount: 0,
-  wrongCount: 0,
-  totalCount: q.comprehension.length
-};
-
-function scoreComprehension(responseObject, questionSet) {
-  const answerIndexByLabel = { Yes: 0, No: 1, Unsure: 2 };
-  let correctCount = 0;
-
-  questionSet.forEach((question, i) => {
-    const responseIndex = responseObject[`Q${i}`];
-    const expectedIndex = answerIndexByLabel[question.correct];
-    if (typeof expectedIndex === "number" && responseIndex === expectedIndex) {
-      correctCount += 1;
-    }
-  });
-
-  return {
-    correctCount,
-    wrongCount: questionSet.length - correctCount,
-    totalCount: questionSet.length,
-    passed:
-      correctCount >= runtimeConfig.comprehensionMinCorrect &&
-      (questionSet.length - correctCount) <= runtimeConfig.comprehensionMaxWrong
-  };
-}
-
-const intro = {
-  type: jsPsychInstructions,
-  pages: [
-    `<h2>Instructions</h2>
-     <p>You will read a short narrative once.</p>
-     <p><strong>Please do not go back to re-read the story once you begin the questions.</strong></p>
-     <p>Answer based on your understanding and memory.</p>`
-  ],
-  show_clickable_nav: true,
-  allow_backward: false
-};
-
-const demographics = {
-  type: jsPsychSurveyHtmlForm,
-  html: `
-    <p><strong>Participant information</strong></p>
-    <p>Age: <input name="age" type="number" min="18" max="120" required></p>
-    <p>Gender (optional): <input name="gender" type="text"></p>
-    <p>Highest education completed: <input name="education" type="text" required></p>
-    <p>Native language(s): <input name="native_languages" type="text" required></p>
-    <p>English proficiency (1-7):
-      <select name="english_proficiency" required>
-        <option value="">Select</option>
-        <option>1</option><option>2</option><option>3</option><option>4</option>
-        <option>5</option><option>6</option><option>7</option>
-      </select>
-    </p>
-    <p>Age you began learning English (if not native): <input name="english_start_age" type="number" min="0" max="120"></p>
-  `,
-  button_label: "Continue"
-};
-
-const view_pdf = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: `
-    <div class="pdf-wrap">
-      <iframe class="pdf-frame" src="${selected_pdf_url}" title="Story PDF"></iframe>
-    </div>
-    <p>If the document does not appear below, open it in a new tab: <a href="${selected_pdf_url}" target="_blank" rel="noopener noreferrer">Open story PDF</a></p>
-  `,
-  choices: ["Continue"],
-  prompt: "<p>Please read the document and click continue.</p>"
-};
-
-const comprehension = {
-  type: jsPsychSurveyLikert,
-  preamble: `<h2>Comprehension Check</h2>
-             <p>Answer based on what was explicitly stated in the narrative.</p>`,
-  questions: q.comprehension.map((item) => ({
-    prompt: item.prompt,
-    labels: item.labels,
-    required: item.required
-  })),
-  button_label: "Continue",
-  on_finish: (data) => {
-    comprehensionResult = scoreComprehension(data.response, q.comprehension);
-    data.comprehension_correct = comprehensionResult.correctCount;
-    data.comprehension_wrong = comprehensionResult.wrongCount;
-    data.comprehension_total = comprehensionResult.totalCount;
-    data.comprehension_passed = comprehensionResult.passed;
-
-    jsPsych.data.addProperties({
-      comprehension_passed: comprehensionResult.passed,
-      comprehension_correct: comprehensionResult.correctCount,
-      comprehension_wrong: comprehensionResult.wrongCount,
-      comprehension_total: comprehensionResult.totalCount
-    });
-  }
-};
-
-const temporal = {
-  type: jsPsychSurveyLikert,
-  preamble: `<h2>1) Pairwise Temporal Questions</h2>
-             <p>Treat "before" as earlier in time in the story world.</p>`,
-  questions: q.temporal,
-  button_label: "Continue"
-};
-
-const causal = {
-  timeline: [
-    {
-      type: jsPsychCausalPairScale,
-      instruction: "Indicate the strength of the causal contribution that the event on the left had to the event on the right given the context of the story.",
-      left_event: jsPsych.timelineVariable("left_event"),
-      right_event: jsPsych.timelineVariable("right_event"),
-      labels: jsPsych.timelineVariable("labels"),
-      required: jsPsych.timelineVariable("required"),
-      button_label: "Continue"
-    }
-  ],
-  timeline_variables: q.causal
-};
-
-const counterfactual = {
-  type: jsPsychSurveyLikert,
-  preamble: `<h2>3) Counterfactual Judgements</h2>
-             <p>Imagine the change described in each item. Rate how the likelihood of the target event would change in the same story setting.</p>`,
-  questions: q.counterfactual,
-  button_label: "Continue"
-};
-
-const pilotFeedback = {
-  type: jsPsychSurveyHtmlForm,
-  preamble: "<h2>Pilot Feedback</h2><p>Thank you. Please share any feedback about this pilot version.</p>",
-  html: `
-    <p>How clear were the instructions? (1 = very unclear, 7 = very clear)<br>
-    <input name="clarity_rating" type="number" min="1" max="7" required></p>
-    <p>How difficult was the task? (1 = very easy, 7 = very difficult)<br>
-    <input name="difficulty_rating" type="number" min="1" max="7" required></p>
-    <p>Did you encounter any technical issues?<br>
-    <textarea name="technical_issues" rows="4" style="width:100%;"></textarea></p>
-    <p>Any other feedback?<br>
-    <textarea name="general_feedback" rows="5" style="width:100%;"></textarea></p>
-  `,
-  button_label: "Submit feedback"
-};
-
-const markCompleted = {
-  type: jsPsychCallFunction,
-  func: () => {
-    jsPsych.data.addProperties({ final_status: "completed" });
-  }
-};
-
-const markDisqualified = {
-  type: jsPsychCallFunction,
-  func: () => {
-    jsPsych.data.addProperties({ final_status: "disqualified" });
-  }
-};
-
-const redirectToCompletion = {
-  timeline: [
-    {
-      type: jsPsychCallFunction,
-      func: () => {
-        if (runtimeConfig.completionUrl) {
-          window.location.href = runtimeConfig.completionUrl;
-        }
-      }
-    }
-  ],
-  conditional_function: () => Boolean(runtimeConfig.completionUrl)
-};
-
-const completionFallback = {
-  timeline: [
-    {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: "<h2>Thank you for participating.</h2><p>Your responses have been recorded.</p>",
-      choices: ["Finish"]
-    }
-  ],
-  conditional_function: () => !runtimeConfig.completionUrl
-};
-
-const redirectToDisqualification = {
-  type: jsPsychCallFunction,
-  func: () => {
-    window.location.href = runtimeConfig.disqualificationUrl;
-  }
-};
-
-const passBranch = {
-  timeline: [temporal, causal, counterfactual, pilotFeedback, markCompleted, redirectToCompletion, completionFallback],
-  conditional_function: () => comprehensionResult.passed
-};
-
-const failBranch = {
-  timeline: [markDisqualified, redirectToDisqualification],
-  conditional_function: () => !comprehensionResult.passed
-};
-
-jsPsych.run([
-  intro,
-  demographics,
-  view_pdf,
-  comprehension,
-  passBranch,
-  failBranch
-]);
-  
+const storyBank = {
+  "Stories/Medical Short Linear.pdf": {
+    title: "Hospital Ward Incident",
+    paragraphs: [
+      "Several weeks before the incident, a hospital administrator approved a policy to reduce overnight staffing levels on the ward.",
+      "On a later day, a maintenance contractor disabled a ventilator alarm while performing a routine test.",
+      "After completing the test, the contractor left the room without re-enabling the alarm.",
+      "On the night of the incident, a nurse was assigned more patients than usual.",
+      "Later that night, a brief interruption in power occurred on the ward.",
+      "Following the power interruption, the ventilator stopped operating without sounding an alarm.",
+      "Some time later, the nurse entered the room and found a patient experiencing respiratory distress.",
+      "In the months that followed, an inquest reviewed the sequence of events."
+    ],
+    questions: medicalShortQuestions
+  },
+  "Stories/Medical Short Linear.copy.pdf": {
+    title: "Hospital Ward Incident",
+    paragraphs: [
+      "Several weeks before the incident, a hospital administrator approved a policy to reduce overnight staffing levels on the ward.",
+      "On a later day, a maintenance contractor disabled a ventilator alarm while performing a routine test.",
+      "After completing the test, the contractor left the room without re-enabling the alarm.",
+      "On the night of the incident, a nurse was assigned more patients than usual.",
+      "Later that night, a brief interruption in power occurred on the ward.",
+      "Following the power interruption, the ventilator stopped operating without sounding an alarm.",
+      "Some time later, the nurse entered the room and found a patient experiencing respiratory distress.",
+      "In the months that followed, an inquest reviewed the sequence of events."
+    ],
+    questions: medicalShortQuestions
+  },
+  "Stories/Medical Short NonLinear.pdf": {
+    title: "Hospital Ward Incident",
+    paragraphs: [
+      "In the months that followed, an inquest reviewed the sequence of events.",
+      "Some time earlier, the nurse entered the room and found a patient experiencing respiratory distress.",
+      "Later that night, the ventilator stopped operating without sounding an alarm.",
+      "Several weeks before the incident, a hospital administrator approved a policy to reduce overnight staffing levels on the ward.",
+      "On the night of the incident, a nurse was assigned more patients than usual.",
+      "On a later day, a maintenance contractor disabled a ventilator alarm while performing a routine test.",
+      "After completing the test, the contractor left the room without re-enabling the alarm.",
+      "Earlier that same night, a brief interruption in power occurred on the ward."
+    ],
+    questions: medicalShortQuestions
+  },
+  "Stories/Medical Medium Fluff.pdf": {
+    title: "Hospital Ward Incident (Detailed)",
+    paragraphs: [
+      "Several weeks before the incident, during a routine administrative review of hospital operations, a hospital administrator approved a policy to reduce overnight staffing levels on the ward as part of a broader efficiency plan.",
+      "On a later day, during scheduled equipment maintenance in one of the patient rooms, a maintenance contractor disabled a ventilator alarm while performing a standard test of the machine's functions.",
+      "After completing the test and documenting the procedure, the contractor left the room without re-enabling the alarm before moving on to another task elsewhere in the building.",
+      "On the night of the incident, as staff assignments were being finalized at the start of the shift, a nurse was assigned more patients than usual across several rooms on the ward.",
+      "Later that night, while activity on the ward remained relatively quiet, a brief interruption in power occurred, affecting several pieces of equipment for a short period of time.",
+      "Following the power interruption, the ventilator stopped operating without sounding an alarm, and the room remained otherwise undisturbed for some time.",
+      "Some time later, during a scheduled round, the nurse entered the room and found a patient experiencing respiratory distress.",
+      "In the months that followed, after records and logs had been collected, an inquest reviewed the sequence of events surrounding the incident."
+    ],
+    questions: medicalMediumQuestions
+  },
+  "Stories/Medical Medium Fluff NonLinear.pdf": {
+    title: "Hospital Ward Incident (Detailed)",
+    paragraphs: [
+      "In the months that followed, after records and logs had been collected, an inq
