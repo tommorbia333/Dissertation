@@ -66,7 +66,7 @@ var IntroSequence = (function () {
           '<h2>Welcome</h2>',
           '<p>Thank you for agreeing to take part in this study.</p>',
           '<p>In this session you will read four short stories and answer a series of questions about each one. ',
-          'The session takes about 60 minutes to complete.</p>',
+          'The session takes between 45-60 minutes to complete.</p>',
           '<p>Please find a quiet place where you will not be interrupted, and work through the tasks at your own pace.</p>',
           (CONFIG.debug && CONFIG.debug.enabled && meta)
             ? '<p class="debug-note"><small>Participant: ' + escapeHtml(meta.participant_id)
@@ -88,14 +88,14 @@ var IntroSequence = (function () {
       stimulus: [
         '<div class="consent-box">',
         '<h2>Informed consent</h2>',
-        '<p><strong>Purpose.</strong> This research is about how people understand and interpret short written stories. It is part of a doctoral dissertation.</p>',
-        '<p><strong>What you will do.</strong> You will read four short stories and answer questions about each one. The whole session takes approximately 60 minutes.</p>',
+        '<p><strong>Purpose.</strong> This research is about how people understand and interpret short written stories. It is part of a masters dissertation.</p>',
+        '<p><strong>What you will do.</strong> You will read four short stories and answer questions about each one. The whole session takes approximately 45-60 minutes.</p>',
         '<p><strong>Payment.</strong> You will receive the amount shown on Prolific upon successful completion.</p>',
         '<p><strong>Risks and benefits.</strong> There are no anticipated risks beyond those of ordinary online reading. Your participation helps us understand how people construct meaning from narrative.</p>',
         '<p><strong>Data use.</strong> Your responses will be anonymised and stored securely. Only aggregated results will appear in publications. Your Prolific ID links your submission to payment and will be removed from the research dataset before analysis.</p>',
         '<p><strong>Right to withdraw.</strong> You may withdraw at any time by closing this window, without giving a reason. Data already submitted may still be used in aggregate unless you contact the researcher.</p>',
-        '<p><strong>Ethics.</strong> This study has been approved by [INSTITUTION] Research Ethics Committee [ETHICS_REF].</p>',
-        '<p><strong>Contact.</strong> For questions, contact [RESEARCHER] at [EMAIL] or the supervisor [SUPERVISOR] at [SUPERVISOR_EMAIL].</p>',
+        '<p><strong>Ethics.</strong> This study has been approved by University College London Research Ethics Committee.</p>',
+        '<p><strong>Contact.</strong> For questions, contact Tommaso Morini Bianzino at tommaso.bianzino.25@ucl.ac.uk or the supervisor Mario Giulianelli at m.giulianelli@ucl.ac.uk.</p>',
         '<p style="margin-top: 1.8em;"><strong>Do you consent to participate in this study?</strong></p>',
         '</div>',
       ].join(''),
@@ -104,11 +104,21 @@ var IntroSequence = (function () {
       on_finish: function (data) {
         data.consent_given = (data.response === 0);
         if (!data.consent_given) {
-          jsPsych.endExperiment(
-            '<h2>Thank you</h2>' +
-            '<p>You have chosen not to participate. You may now close this window.</p>' +
-            '<p>Please return the study on Prolific so you are not charged.</p>'
-          );
+          var screenOutURL = CONFIG.prolific && CONFIG.prolific.screen_out_url;
+          if (screenOutURL) {
+            jsPsych.abortExperiment(
+              '<h2>Thank you</h2>' +
+              '<p>You have chosen not to take part. You will be returned to Prolific in a moment.</p>' +
+              '<p class="debug-note"><small>If nothing happens, <a href="' + escapeHtml(screenOutURL) + '">click here</a>.</small></p>'
+            );
+            setTimeout(function () { window.location.href = screenOutURL; },
+              (CONFIG.prolific && CONFIG.prolific.redirect_buffer_ms) || 2000);
+          } else {
+            jsPsych.abortExperiment(
+              '<h2>Thank you</h2>' +
+              '<p>You may now close this browser.</p>'
+            );
+          }
         }
       },
     };
@@ -172,7 +182,7 @@ var IntroSequence = (function () {
         data.attn_chosen = chosen;
         data.attn_correct = (chosen === ac.correct_option);
         if (!data.attn_correct && ac.reject_on_fail) {
-          jsPsych.endExperiment(
+          jsPsych.abortExperiment(
             '<h2>Study ended</h2>' +
             '<p>Thank you for your time. Please return this study on Prolific.</p>'
           );

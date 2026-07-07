@@ -98,7 +98,7 @@ function makeSandbox() {
           displayData: () => {},
           get: () => ({ values: () => [] }),
         },
-        endExperiment: (html) => { simEnded = true; simEndHTML = html; },
+        abortExperiment: (html) => { simEnded = true; simEndHTML = html; },
         run: (timeline) => { simTimeline = timeline; },
       };
     },

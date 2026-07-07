@@ -79,7 +79,13 @@ var CONFIG = {
   // ---- Prolific integration ----
   prolific: {
     // Replace with the specific study's completion URL before deployment.
-    completion_url: 'https://app.prolific.co/submissions/complete?cc=REPLACE_WITH_STUDY_CODE',
+    completion_url: 'https://app.prolific.com/submissions/complete?cc=C1LQCAE4',
+    // Screen-out completion URL for participants who decline consent. Set this
+    // to a Prolific "screen out" completion code so non-consenting participants
+    // are returned to Prolific without counting against paid submission slots
+    // (Prolific → Completion paths → add a screen-out path). If left null, the
+    // consent-refusal screen simply asks the participant to close the browser.
+    screen_out_url: 'https://app.prolific.com/submissions/complete?cc=C11W5NB1',
     // If true, redirect automatically after the debrief screen.
     // If false, display the completion URL for the participant to click.
     auto_redirect: true,
