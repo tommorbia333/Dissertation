@@ -31,9 +31,22 @@ var jsPsych;  // exposed as a global so sub-modules (intro, outro) can end early
   var urlParams = Utils.getURLParams();
   var participantIdStr = urlParams.PROLIFIC_PID || Utils.fallbackParticipantId();
 
+  // Participant index (0..59) drives BOTH story assignment and condition, so a
+  // single balanced index guarantees the full preregistered design.
+  // Resolution priority:
+  //   1. Explicit ?pIndex=N in the URL — manual control / piloting.
+  //   2. Cognition's server-side balancer. Configure the task with 60
+  //      "inter experiment conditions"; the platform injects a global
+  //      CONDITION kept at equal N across participants. CONDITION % 60 yields
+  //      a balanced 0..59 index whether the platform numbers its conditions
+  //      0..59 or 1..60 (both are a bijection onto 0..59).
+  //   3. Off-platform fallback (local testing / non-Cognition hosting):
+  //      hash of the participant ID. Approximate balance only.
   var pIndex;
   if (urlParams.pIndex !== undefined && urlParams.pIndex !== '') {
     pIndex = parseInt(urlParams.pIndex, 10);
+  } else if (typeof CONDITION !== 'undefined' && CONDITION !== null && CONDITION !== '') {
+    pIndex = ((parseInt(CONDITION, 10) % 60) + 60) % 60;
   } else {
     var h = 0;
     for (var i = 0; i < participantIdStr.length; i++) {
@@ -42,7 +55,7 @@ var jsPsych;  // exposed as a global so sub-modules (intro, outro) can end early
     pIndex = Math.abs(h);
   }
 
-  var condition = Condition.assignCondition(pIndex, participantIdStr);
+  var condition = Condition.assignCondition(pIndex);
   var assignment = Selection.assignStories(pIndex);
   var participantMeta = DataHelpers.initParticipant(urlParams, pIndex, condition, assignment);
 
