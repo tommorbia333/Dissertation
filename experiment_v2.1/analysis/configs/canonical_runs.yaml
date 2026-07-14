@@ -1,0 +1,53 @@
+# Canonical run paths for dissertation analysis.
+# All paths are relative to experiment_v2.1/ unless absolute.
+
+human:
+  combined_csv: human results/experiment-v21_all67.csv
+  individual_dir: human results/experiment-v21_all67_individual
+  audit_json: human results/_audits/audit_all67.json
+  merge_manifest: human results/_audits/fill_gaps_merge.json
+  prolific_demographics: human results/prolific_demographic_export_6a4d129b9b198982dc875d08.csv
+
+model_behavioural:
+  sweep_id: sweep_20260524_120056_main_run_v5_prompt_2
+  sweep_dir: model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2
+  prompt_variant: v5_human_like
+  story_subset: all_8  # includes care_home_incident, family_conflict
+
+probing:
+  runs:
+    full_1_5b:
+      run_id: run_20260709_131857_full_1_5b
+      run_dir: model_arm/outputs_probing/run_20260709_131857_full_1_5b
+      model_key: qwen1.5b
+      status: complete
+    full_7b:
+      run_id: run_20260709_134350_full_7b
+      run_dir: model_arm/outputs_probing/run_20260709_134350_full_7b
+      model_key: qwen7b
+      status: complete
+
+author_graphs: author_intended_graphs.json
+
+story_sets:
+  human_pool_6:
+    - hospital_incident
+    - community_fair
+    - restaurant_fire
+    - school_trip
+    - power_cut
+    - missed_flight
+  all_8:
+    - hospital_incident
+    - community_fair
+    - restaurant_fire
+    - school_trip
+    - power_cut
+    - missed_flight
+    - care_home_incident
+    - family_conflict
+
+conditions:
+  - linear
+  - nonlinear
+  - atemporal

@@ -1,0 +1,383 @@
+{
+  "reducer": "mean",
+  "n_participant_matrices": 236,
+  "n_story_keys": 6,
+  "story_keys": [
+    "hospital_incident",
+    "community_fair",
+    "restaurant_fire",
+    "school_trip",
+    "power_cut",
+    "missed_flight"
+  ],
+  "conditions": [
+    "linear",
+    "nonlinear",
+    "atemporal"
+  ],
+  "cells": [
+    {
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "n_participants": 13,
+      "run_ids": [
+        "2",
+        "4",
+        "6",
+        "7",
+        "8",
+        "15",
+        "17",
+        "22",
+        "23",
+        "42",
+        "63",
+        "97",
+        "101"
+      ]
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "linear",
+      "n_participants": 14,
+      "run_ids": [
+        "2",
+        "4",
+        "15",
+        "16",
+        "18",
+        "19",
+        "22",
+        "23",
+        "42",
+        "63",
+        "71",
+        "88",
+        "97",
+        "98"
+      ]
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "n_participants": 13,
+      "run_ids": [
+        "2",
+        "6",
+        "7",
+        "8",
+        "15",
+        "16",
+        "18",
+        "19",
+        "42",
+        "63",
+        "70",
+        "98",
+        "101"
+      ]
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "linear",
+      "n_participants": 14,
+      "run_ids": [
+        "4",
+        "7",
+        "15",
+        "16",
+        "17",
+        "19",
+        "23",
+        "42",
+        "70",
+        "71",
+        "88",
+        "97",
+        "98",
+        "101"
+      ]
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "linear",
+      "n_participants": 13,
+      "run_ids": [
+        "6",
+        "8",
+        "16",
+        "17",
+        "18",
+        "19",
+        "22",
+        "63",
+        "70",
+        "71",
+        "88",
+        "97",
+        "101"
+      ]
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "n_participants": 13,
+      "run_ids": [
+        "2",
+        "4",
+        "6",
+        "7",
+        "8",
+        "17",
+        "18",
+        "22",
+        "23",
+        "70",
+        "71",
+        "88",
+        "98"
+      ]
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "n_participants": 14,
+      "run_ids": [
+        "5",
+        "11",
+        "12",
+        "28",
+        "32",
+        "44",
+        "54",
+        "69",
+        "72",
+        "78",
+        "89",
+        "91",
+        "95",
+        "100"
+      ]
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "n_participants": 13,
+      "run_ids": [
+        "11",
+        "28",
+        "32",
+        "44",
+        "55",
+        "67",
+        "69",
+        "78",
+        "83",
+        "85",
+        "89",
+        "91",
+        "100"
+      ]
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "n_participants": 14,
+      "run_ids": [
+        "5",
+        "28",
+        "32",
+        "54",
+        "55",
+        "60",
+        "67",
+        "69",
+        "72",
+        "82",
+        "83",
+        "85",
+        "91",
+        "100"
+      ]
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "n_participants": 13,
+      "run_ids": [
+        "5",
+        "12",
+        "44",
+        "54",
+        "55",
+        "60",
+        "67",
+        "69",
+        "72",
+        "82",
+        "83",
+        "85",
+        "95"
+      ]
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "n_participants": 13,
+      "run_ids": [
+        "5",
+        "11",
+        "12",
+        "28",
+        "44",
+        "54",
+        "60",
+        "78",
+        "82",
+        "85",
+        "89",
+        "91",
+        "95"
+      ]
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "n_participants": 13,
+      "run_ids": [
+        "11",
+        "12",
+        "32",
+        "55",
+        "60",
+        "67",
+        "72",
+        "78",
+        "82",
+        "83",
+        "89",
+        "95",
+        "100"
+      ]
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "n_participants": 13,
+      "run_ids": [
+        "24",
+        "29",
+        "34",
+        "35",
+        "45",
+        "48",
+        "49",
+        "51",
+        "76",
+        "79",
+        "81",
+        "87",
+        "93"
+      ]
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "n_participants": 12,
+      "run_ids": [
+        "26",
+        "29",
+        "46",
+        "51",
+        "76",
+        "79",
+        "81",
+        "84",
+        "86",
+        "87",
+        "93",
+        "99"
+      ]
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "n_participants": 12,
+      "run_ids": [
+        "24",
+        "26",
+        "34",
+        "45",
+        "48",
+        "49",
+        "79",
+        "81",
+        "86",
+        "93",
+        "96",
+        "99"
+      ]
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "n_participants": 13,
+      "run_ids": [
+        "24",
+        "29",
+        "35",
+        "46",
+        "48",
+        "49",
+        "51",
+        "76",
+        "79",
+        "84",
+        "86",
+        "87",
+        "96"
+      ]
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "n_participants": 13,
+      "run_ids": [
+        "26",
+        "29",
+        "34",
+        "35",
+        "45",
+        "46",
+        "48",
+        "76",
+        "81",
+        "84",
+        "86",
+        "96",
+        "99"
+      ]
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "n_participants": 13,
+      "run_ids": [
+        "24",
+        "26",
+        "34",
+        "35",
+        "45",
+        "46",
+        "49",
+        "51",
+        "84",
+        "87",
+        "93",
+        "96",
+        "99"
+      ]
+    }
+  ],
+  "artefact": "outputs/aggregated/human_rdms.npz"
+}

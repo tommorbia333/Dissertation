@@ -1,0 +1,592 @@
+{
+  "probing_run": "full_7b",
+  "probing_artefact": "/Users/tommaso/Desktop/Dissertation/experiment_v2.1/model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/rdms/model_rdms_for_human.npz",
+  "human_artefact": "/Users/tommaso/Desktop/Dissertation/experiment_v2.1/analysis/track_02_human_rdm/outputs/aggregated/human_rdms.npz",
+  "story_subset": "human_pool_6",
+  "overlap_stories": [
+    "hospital_incident",
+    "community_fair",
+    "restaurant_fire",
+    "school_trip",
+    "power_cut",
+    "missed_flight"
+  ],
+  "metrics": {
+    "mantel_r": "Pearson r on 56 off-diagonal cells",
+    "spearman_distance": "1 - Spearman rho on 56 off-diagonal cells"
+  },
+  "mean_by_condition_arm": {
+    "linear": {
+      "author": {
+        "mean_mantel_r": 0.6275707511933624,
+        "mean_spearman_distance": 0.4695205754619505,
+        "n_stories": 6
+      },
+      "behavioural": {
+        "mean_mantel_r": 0.5446915259561946,
+        "mean_spearman_distance": 0.47675554990834984,
+        "n_stories": 6
+      },
+      "prompted": {
+        "mean_mantel_r": 0.30284496992112253,
+        "mean_spearman_distance": 0.6841772770422262,
+        "n_stories": 6
+      },
+      "reading": {
+        "mean_mantel_r": 0.021557771241398477,
+        "mean_spearman_distance": 1.0026936632639818,
+        "n_stories": 6
+      }
+    },
+    "nonlinear": {
+      "author": {
+        "mean_mantel_r": 0.6288627581264031,
+        "mean_spearman_distance": 0.47256085357480965,
+        "n_stories": 6
+      },
+      "behavioural": {
+        "mean_mantel_r": 0.5165251468987323,
+        "mean_spearman_distance": 0.514072632236392,
+        "n_stories": 6
+      },
+      "prompted": {
+        "mean_mantel_r": 0.3396706380964935,
+        "mean_spearman_distance": 0.6865895568958863,
+        "n_stories": 6
+      },
+      "reading": {
+        "mean_mantel_r": 0.03398580411165384,
+        "mean_spearman_distance": 0.9733476748342939,
+        "n_stories": 6
+      }
+    },
+    "atemporal": {
+      "author": {
+        "mean_mantel_r": 0.6120473875426241,
+        "mean_spearman_distance": 0.4792428752613156,
+        "n_stories": 6
+      },
+      "behavioural": {
+        "mean_mantel_r": 0.5644792641929467,
+        "mean_spearman_distance": 0.4674863105283386,
+        "n_stories": 6
+      },
+      "prompted": {
+        "mean_mantel_r": 0.250925988887767,
+        "mean_spearman_distance": 0.7432942184535118,
+        "n_stories": 6
+      },
+      "reading": {
+        "mean_mantel_r": -0.0032967416553533867,
+        "mean_spearman_distance": 1.005213510006497,
+        "n_stories": 6
+      }
+    }
+  },
+  "per_story": [
+    {
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.5059188978058308,
+      "spearman_distance": 0.5314291753074982
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.7310392884250628,
+      "spearman_distance": 0.4345006962552397
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.5681485456612234,
+      "spearman_distance": 0.5219580168047667
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.6274475872380262,
+      "spearman_distance": 0.42601765558154536
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.6618697117590708,
+      "spearman_distance": 0.4397560313126878
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "arm": "author",
+      "mantel_r": 0.6710004762709602,
+      "spearman_distance": 0.46346187750996526
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.6154186091316544,
+      "spearman_distance": 0.31896903523928466
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.5346465013764853,
+      "spearman_distance": 0.5182581930399782
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.358050183277161,
+      "spearman_distance": 0.7123534275812434
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.4506927217225423,
+      "spearman_distance": 0.6010602269757245
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.7463525814118199,
+      "spearman_distance": 0.29693033025116644
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "arm": "behavioural",
+      "mantel_r": 0.5629885588175049,
+      "spearman_distance": 0.4129620863627016
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.09545605974044861,
+      "spearman_distance": 0.8770840512554607
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.3403531066645256,
+      "spearman_distance": 0.7094353551370713
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.37047759429397603,
+      "spearman_distance": 0.6144741666260868
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.24287966288642177,
+      "spearman_distance": 0.6812723308719713
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.49716894233372594,
+      "spearman_distance": 0.5184566900780236
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "arm": "prompted",
+      "mantel_r": 0.270734453607637,
+      "spearman_distance": 0.7043410682847435
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": -0.10721883622381223,
+      "spearman_distance": 1.06152161791824
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": 0.2671286182117336,
+      "spearman_distance": 0.8059235602733086
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": 0.007064193125224596,
+      "spearman_distance": 1.0556935579354905
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": -0.08141828365885749,
+      "spearman_distance": 1.0813798353407194
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": 0.1035793713550913,
+      "spearman_distance": 0.9735507442383197
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "arm": "reading",
+      "mantel_r": -0.05978843536098893,
+      "spearman_distance": 1.0380926638778132
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.4946352866911888,
+      "spearman_distance": 0.5370849978074375
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.761720625447151,
+      "spearman_distance": 0.41912597348173597
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.6101966494450948,
+      "spearman_distance": 0.4973295070283147
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.6241422938859911,
+      "spearman_distance": 0.4419734165872996
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.5938064169081914,
+      "spearman_distance": 0.4804046893737174
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "arm": "author",
+      "mantel_r": 0.6886752763808018,
+      "spearman_distance": 0.4594465371703528
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.6496498346705633,
+      "spearman_distance": 0.3548464225352276
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.5226605219694662,
+      "spearman_distance": 0.5315097089054783
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.23874596904600545,
+      "spearman_distance": 0.8355943011836322
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.5105434316007463,
+      "spearman_distance": 0.4399295400957727
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.6136493304730213,
+      "spearman_distance": 0.5011631508545606
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "arm": "behavioural",
+      "mantel_r": 0.5639017936325913,
+      "spearman_distance": 0.4213926698436805
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.2867605543503533,
+      "spearman_distance": 0.6471548871789365
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.5400430872432079,
+      "spearman_distance": 0.5195937155345608
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.1716562333036776,
+      "spearman_distance": 0.8717259178225676
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.3227793120717372,
+      "spearman_distance": 0.707351803936861
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.3873436417507402,
+      "spearman_distance": 0.6301248831070488
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "arm": "prompted",
+      "mantel_r": 0.32944099985924463,
+      "spearman_distance": 0.7435861337953431
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": -0.07257929827549292,
+      "spearman_distance": 1.0258294615100303
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": 0.27053912191036156,
+      "spearman_distance": 0.892293616849342
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": 0.000987587210480534,
+      "spearman_distance": 0.9503637031048308
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": 0.020952172190658182,
+      "spearman_distance": 0.9519210759231638
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": 0.020017212521377645,
+      "spearman_distance": 1.0622517749484484
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "arm": "reading",
+      "mantel_r": -0.03600197088746193,
+      "spearman_distance": 0.9574264166699483
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.5351401992914481,
+      "spearman_distance": 0.5186897814459135
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.7056737914598893,
+      "spearman_distance": 0.4628600145156031
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.5496356831332949,
+      "spearman_distance": 0.5124063415546096
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.6121434113067132,
+      "spearman_distance": 0.4519767505811857
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.5744240499047831,
+      "spearman_distance": 0.4772337871449638
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "arm": "author",
+      "mantel_r": 0.6952671901596161,
+      "spearman_distance": 0.45229057632561775
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.6729458300804434,
+      "spearman_distance": 0.33486121556977266
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.5272552662921289,
+      "spearman_distance": 0.5326862709027094
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.5259148940550222,
+      "spearman_distance": 0.548145377069323
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.4188573221461998,
+      "spearman_distance": 0.5814098626163338
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.6070258622849818,
+      "spearman_distance": 0.38630728238900647
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "arm": "behavioural",
+      "mantel_r": 0.6348764102989034,
+      "spearman_distance": 0.4215078546228863
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": -0.01821754150192203,
+      "spearman_distance": 1.0576209533916612
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": 0.4889361151781043,
+      "spearman_distance": 0.5709076544716977
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": 0.11696048707919023,
+      "spearman_distance": 0.7727730763887816
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": 0.013374230115001157,
+      "spearman_distance": 0.9246489823847673
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": 0.4448320139358576,
+      "spearman_distance": 0.558539491813868
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "arm": "prompted",
+      "mantel_r": 0.45967062852037055,
+      "spearman_distance": 0.5752751522702956
+    },
+    {
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": -0.10169086025551308,
+      "spearman_distance": 1.013487842014999
+    },
+    {
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": 0.2794485783369422,
+      "spearman_distance": 0.8007565232880914
+    },
+    {
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": -0.10686162710930042,
+      "spearman_distance": 1.1133256944077927
+    },
+    {
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": -0.08651674582038213,
+      "spearman_distance": 1.0991917454974618
+    },
+    {
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": 0.023682294262762034,
+      "spearman_distance": 0.9917847591717714
+    },
+    {
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "arm": "reading",
+      "mantel_r": -0.02784208934662893,
+      "spearman_distance": 1.0127344956588646
+    }
+  ]
+}

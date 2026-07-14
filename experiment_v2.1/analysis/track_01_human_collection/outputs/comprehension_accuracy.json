@@ -1,0 +1,236 @@
+{
+  "selection": "canonical",
+  "n_story_trials": 239,
+  "n_items": 1498,
+  "overall": {
+    "n": 239,
+    "mean_accuracy": 0.9086471408647142
+  },
+  "overall_excluding_attn_flagged": {
+    "n": 239,
+    "mean_accuracy": 0.9086471408647142
+  },
+  "n_attn_flagged_story_trials": 0,
+  "by_condition": {
+    "linear": {
+      "n": 81,
+      "mean_accuracy": 0.9423868312757201
+    },
+    "nonlinear": {
+      "n": 82,
+      "mean_accuracy": 0.8902439024390242
+    },
+    "atemporal": {
+      "n": 76,
+      "mean_accuracy": 0.8925438596491228
+    }
+  },
+  "by_story": {
+    "hospital_incident": {
+      "n": 42,
+      "mean_accuracy": 0.9087301587301587
+    },
+    "community_fair": {
+      "n": 39,
+      "mean_accuracy": 0.9273504273504273
+    },
+    "restaurant_fire": {
+      "n": 39,
+      "mean_accuracy": 0.8461538461538459
+    },
+    "school_trip": {
+      "n": 40,
+      "mean_accuracy": 0.9416666666666667
+    },
+    "power_cut": {
+      "n": 39,
+      "mean_accuracy": 0.9145299145299146
+    },
+    "missed_flight": {
+      "n": 40,
+      "mean_accuracy": 0.9125
+    }
+  },
+  "by_story_condition": {
+    "hospital_incident__linear": {
+      "n": 14,
+      "mean_accuracy": 0.880952380952381
+    },
+    "hospital_incident__nonlinear": {
+      "n": 15,
+      "mean_accuracy": 0.9111111111111111
+    },
+    "hospital_incident__atemporal": {
+      "n": 13,
+      "mean_accuracy": 0.935897435897436
+    },
+    "community_fair__linear": {
+      "n": 14,
+      "mean_accuracy": 0.9642857142857143
+    },
+    "community_fair__nonlinear": {
+      "n": 13,
+      "mean_accuracy": 0.9102564102564104
+    },
+    "community_fair__atemporal": {
+      "n": 12,
+      "mean_accuracy": 0.9027777777777777
+    },
+    "restaurant_fire__linear": {
+      "n": 13,
+      "mean_accuracy": 0.9102564102564104
+    },
+    "restaurant_fire__nonlinear": {
+      "n": 14,
+      "mean_accuracy": 0.7976190476190477
+    },
+    "restaurant_fire__atemporal": {
+      "n": 12,
+      "mean_accuracy": 0.8333333333333334
+    },
+    "school_trip__linear": {
+      "n": 14,
+      "mean_accuracy": 0.9880952380952381
+    },
+    "school_trip__nonlinear": {
+      "n": 13,
+      "mean_accuracy": 0.935897435897436
+    },
+    "school_trip__atemporal": {
+      "n": 13,
+      "mean_accuracy": 0.8974358974358977
+    },
+    "power_cut__linear": {
+      "n": 13,
+      "mean_accuracy": 0.9230769230769231
+    },
+    "power_cut__nonlinear": {
+      "n": 13,
+      "mean_accuracy": 0.9230769230769231
+    },
+    "power_cut__atemporal": {
+      "n": 13,
+      "mean_accuracy": 0.8974358974358977
+    },
+    "missed_flight__linear": {
+      "n": 13,
+      "mean_accuracy": 0.9871794871794872
+    },
+    "missed_flight__nonlinear": {
+      "n": 14,
+      "mean_accuracy": 0.869047619047619
+    },
+    "missed_flight__atemporal": {
+      "n": 13,
+      "mean_accuracy": 0.8846153846153848
+    }
+  },
+  "hardest_items": [
+    {
+      "item": "restaurant_fire::rest_6",
+      "n": 41,
+      "accuracy": 0.5853658536585366
+    },
+    {
+      "item": "restaurant_fire::rest_3",
+      "n": 44,
+      "accuracy": 0.5909090909090909
+    },
+    {
+      "item": "power_cut::pow_6",
+      "n": 42,
+      "accuracy": 0.6428571428571429
+    },
+    {
+      "item": "missed_flight::flt_5",
+      "n": 43,
+      "accuracy": 0.7674418604651163
+    },
+    {
+      "item": "hospital_incident::hosp_6",
+      "n": 44,
+      "accuracy": 0.7954545454545454
+    },
+    {
+      "item": "missed_flight::flt_3",
+      "n": 44,
+      "accuracy": 0.8181818181818182
+    },
+    {
+      "item": "restaurant_fire::rest_2",
+      "n": 41,
+      "accuracy": 0.8536585365853658
+    },
+    {
+      "item": "school_trip::trip_5",
+      "n": 41,
+      "accuracy": 0.8536585365853658
+    },
+    {
+      "item": "hospital_incident::hosp_2",
+      "n": 44,
+      "accuracy": 0.8636363636363636
+    },
+    {
+      "item": "hospital_incident::hosp_5",
+      "n": 44,
+      "accuracy": 0.8636363636363636
+    }
+  ],
+  "easiest_items": [
+    {
+      "item": "school_trip::trip_1",
+      "n": 42,
+      "accuracy": 0.9761904761904762
+    },
+    {
+      "item": "school_trip::trip_3",
+      "n": 40,
+      "accuracy": 0.975
+    },
+    {
+      "item": "school_trip::trip_6",
+      "n": 40,
+      "accuracy": 0.975
+    },
+    {
+      "item": "community_fair::fair_2",
+      "n": 39,
+      "accuracy": 0.9743589743589743
+    },
+    {
+      "item": "missed_flight::flt_4",
+      "n": 42,
+      "accuracy": 0.9523809523809523
+    },
+    {
+      "item": "restaurant_fire::rest_4",
+      "n": 41,
+      "accuracy": 0.9512195121951219
+    },
+    {
+      "item": "power_cut::pow_2",
+      "n": 40,
+      "accuracy": 0.95
+    },
+    {
+      "item": "community_fair::fair_6",
+      "n": 39,
+      "accuracy": 0.9487179487179487
+    },
+    {
+      "item": "power_cut::pow_1",
+      "n": 41,
+      "accuracy": 0.926829268292683
+    },
+    {
+      "item": "power_cut::pow_4",
+      "n": 41,
+      "accuracy": 0.926829268292683
+    }
+  ],
+  "notes": [
+    "accuracy is the per-story-trial fraction correct on the 6-item comprehension battery (3 compound, 2 single, 1 distractor).",
+    "Comprehension gates re-entry to the block before ordering if accuracy is below threshold, so summary-row accuracy already reflects the participant's best completed attempt."
+  ]
+}

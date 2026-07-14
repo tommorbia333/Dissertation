@@ -1,0 +1,292 @@
+{
+  "sweep_dir": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2",
+  "n_trials_summarized": 2,
+  "per_model": [
+    {
+      "model": "Qwen-Qwen2.5-7B-Instruct",
+      "trial_dir": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like",
+      "comprehension": {
+        "n_items": 540,
+        "overall_accuracy": 0.9703703703703703,
+        "by_condition": {
+          "atemporal": 0.9555555555555556,
+          "linear": 0.9722222222222222,
+          "nonlinear": 0.9833333333333333
+        },
+        "by_story": {
+          "community_fair": 1.0,
+          "hospital_incident": 0.9666666666666667,
+          "missed_flight": 1.0,
+          "power_cut": 0.8555555555555555,
+          "restaurant_fire": 1.0,
+          "school_trip": 1.0
+        }
+      },
+      "pair_scaling_vs_gold": {
+        "n_cells": 90,
+        "overall": {
+          "n": 90,
+          "mean_pearson_r_vs_gold": 0.4112074412959449,
+          "mean_directional_accuracy": 0.690515873015873,
+          "mean_edge_f1": 0.38133431221446096,
+          "mean_n_parse_failures": 0.0
+        },
+        "by_condition": {
+          "atemporal": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.4035201481962476,
+            "mean_directional_accuracy": 0.6373809523809524,
+            "mean_edge_f1": 0.3789989645856593,
+            "mean_n_parse_failures": 0.0
+          },
+          "linear": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.4141466942929439,
+            "mean_directional_accuracy": 0.7345238095238096,
+            "mean_edge_f1": 0.3873014648596246,
+            "mean_n_parse_failures": 0.0
+          },
+          "nonlinear": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.41595548139864297,
+            "mean_directional_accuracy": 0.6996428571428571,
+            "mean_edge_f1": 0.37770250719809917,
+            "mean_n_parse_failures": 0.0
+          }
+        }
+      },
+      "geometry": {
+        "metric": "1 - Spearman rho on 56 off-diagonal cells",
+        "inter_story": {
+          "atemporal": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.5504993025407711
+          },
+          "linear": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.44121736935805966
+          },
+          "nonlinear": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.4727801551020804
+          }
+        },
+        "inter_condition": {
+          "community_fair": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.07556181703293659
+          },
+          "hospital_incident": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.13099126653548984
+          },
+          "missed_flight": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.1525073098463642
+          },
+          "power_cut": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.07418511819944403
+          },
+          "restaurant_fire": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.2054549030241071
+          },
+          "school_trip": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.07837725944439156
+          }
+        },
+        "meta_mean_offdiag_distance": 0.46339832513696066
+      }
+    },
+    {
+      "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+      "trial_dir": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like",
+      "comprehension": {
+        "n_items": 540,
+        "overall_accuracy": 0.7759259259259259,
+        "by_condition": {
+          "atemporal": 0.7722222222222223,
+          "linear": 0.7777777777777778,
+          "nonlinear": 0.7777777777777778
+        },
+        "by_story": {
+          "community_fair": 0.8444444444444444,
+          "hospital_incident": 0.6888888888888889,
+          "missed_flight": 0.9111111111111111,
+          "power_cut": 0.8333333333333334,
+          "restaurant_fire": 0.5444444444444444,
+          "school_trip": 0.8333333333333334
+        }
+      },
+      "pair_scaling_vs_gold": {
+        "n_cells": 90,
+        "overall": {
+          "n": 90,
+          "mean_pearson_r_vs_gold": 0.2506719927615115,
+          "mean_directional_accuracy": 0.25527777777777777,
+          "mean_edge_f1": 0.31724542350129237,
+          "mean_n_parse_failures": 0.0
+        },
+        "by_condition": {
+          "atemporal": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.21368300813668242,
+            "mean_directional_accuracy": 0.1857142857142857,
+            "mean_edge_f1": 0.3157882734367681,
+            "mean_n_parse_failures": 0.0
+          },
+          "linear": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.2842100249059636,
+            "mean_directional_accuracy": 0.3441666666666666,
+            "mean_edge_f1": 0.324515161716849,
+            "mean_n_parse_failures": 0.0
+          },
+          "nonlinear": {
+            "n": 30,
+            "mean_pearson_r_vs_gold": 0.2541229452418886,
+            "mean_directional_accuracy": 0.23595238095238097,
+            "mean_edge_f1": 0.3114328353502602,
+            "mean_n_parse_failures": 0.0
+          }
+        }
+      },
+      "geometry": {
+        "metric": "1 - Spearman rho on 56 off-diagonal cells",
+        "inter_story": {
+          "atemporal": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.6828125961037689
+          },
+          "linear": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.6147529930112773
+          },
+          "nonlinear": {
+            "story_ids": [
+              "community_fair",
+              "hospital_incident",
+              "missed_flight",
+              "power_cut",
+              "restaurant_fire",
+              "school_trip"
+            ],
+            "mean_offdiag_distance": 0.7090061221450145
+          }
+        },
+        "inter_condition": {
+          "community_fair": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.2645155215798201
+          },
+          "hospital_incident": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.36071589676816745
+          },
+          "missed_flight": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.18321081062146263
+          },
+          "power_cut": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.24557215890372786
+          },
+          "restaurant_fire": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.3597083202731004
+          },
+          "school_trip": {
+            "conditions": [
+              "atemporal",
+              "linear",
+              "nonlinear"
+            ],
+            "mean_offdiag_distance": 0.19423264182439579
+          }
+        },
+        "meta_mean_offdiag_distance": 0.6483342368630459
+      }
+    }
+  ]
+}

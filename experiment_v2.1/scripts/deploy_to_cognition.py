@@ -327,12 +327,16 @@ def get_access_token(*, reset: bool = False) -> str:
 # -----------------------------------------------------------------------------
 
 
-def build_bundle() -> str:
-    """Concatenate experiment_v2.1/ files into a single JS source string."""
+def build_bundle(exp_dir: Path = EXP_DIR) -> str:
+    """Concatenate an experiment_v2.1-shaped directory into a single JS source
+    string. `exp_dir` defaults to the live experiment_v2.1/ folder but can be
+    pointed at any sibling folder with the same relative layout (src/,
+    stimuli/, assets/style.css) — e.g. a filtered "fill gaps" variant meant
+    to be deployed as a separate Cognition task under its own --task-name."""
     parts: list[str] = []
-    parts.append("/* === experiment_v2.1 — auto-generated bundle for Cognition === */\n")
+    parts.append(f"/* === {exp_dir.name} — auto-generated bundle for Cognition === */\n")
 
-    css = (EXP_DIR / CSS_PATH).read_text()
+    css = (exp_dir / CSS_PATH).read_text()
     parts.append(
         "(function(){\n"
         "  var s = document.createElement('style');\n"
@@ -351,7 +355,7 @@ def build_bundle() -> str:
     )
 
     for rel in JS_LOAD_ORDER:
-        path = EXP_DIR / rel
+        path = exp_dir / rel
         if not path.exists():
             raise FileNotFoundError(f"Expected {path} (referenced in JS_LOAD_ORDER)")
         parts.append(f"\n/* ----- {rel} ----- */\n")
@@ -517,6 +521,16 @@ def main() -> int:
         help='Cognition task name to create or update (default: "Experiment v2.1").',
     )
     parser.add_argument(
+        "--exp-dir",
+        type=Path,
+        default=None,
+        help="Path to an experiment_v2.1-shaped source folder to bundle "
+             "(default: the live experiment_v2.1/ folder next to this script). "
+             "Use this with a distinct --task-name to deploy a variant "
+             "(e.g. a filtered-assignments 'fill gaps' folder) as a separate "
+             "Cognition task without touching the live one.",
+    )
+    parser.add_argument(
         "--reset-auth",
         action="store_true",
         help="Force a fresh OAuth flow (ignore cached refresh token).",
@@ -532,15 +546,16 @@ def main() -> int:
         help="Optional path to write the bundled JS for inspection.",
     )
     args = parser.parse_args()
+    exp_dir = args.exp_dir.resolve() if args.exp_dir else EXP_DIR
 
     print("== experiment_v2.1 → Cognition deploy ==")
     print(f"Repo:    {REPO_ROOT}")
-    print(f"Source:  {EXP_DIR}")
+    print(f"Source:  {exp_dir}")
     print(f"Task:    {args.task_name!r}")
     print()
 
     print("Step 1/4: Building bundle ...")
-    source = build_bundle()
+    source = build_bundle(exp_dir)
     print(f"  bundle size = {len(source):,} chars across {len(JS_LOAD_ORDER)} JS files + 1 CSS file")
     if args.save_bundle:
         args.save_bundle.parent.mkdir(parents=True, exist_ok=True)

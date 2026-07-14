@@ -1,0 +1,462 @@
+{
+  "generated_at_utc": "2026-07-14T13:51:55.051894+00:00",
+  "done": [
+    {
+      "item": "Human fill-gaps merge (all67)",
+      "detail": "human results/experiment-v21_all67.csv"
+    },
+    {
+      "item": "Human RDM extraction + aggregation",
+      "detail": ""
+    },
+    {
+      "item": "Human second-order RSA",
+      "detail": ""
+    },
+    {
+      "item": "Cross-arm probing vs human (1.5B)",
+      "detail": ""
+    },
+    {
+      "item": "Cross-arm probing vs human (7B)",
+      "detail": ""
+    },
+    {
+      "item": "Human comprehension accuracy summary",
+      "detail": ""
+    },
+    {
+      "item": "Human \u2194 model behavioural pair-scaling comparison script",
+      "detail": ""
+    },
+    {
+      "item": "Track 03 model behavioural summaries",
+      "detail": ""
+    },
+    {
+      "item": "Track 02 topology stratification (04_by_topology.py)",
+      "detail": ""
+    },
+    {
+      "item": "Three-way cross-arm summary (human + model behavioural + probing)",
+      "detail": ""
+    },
+    {
+      "item": "Temporal ordering analysis (human + model behavioural + probing probes)",
+      "detail": ""
+    },
+    {
+      "item": "Model behavioural trial trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like",
+      "detail": "complete"
+    },
+    {
+      "item": "Model behavioural trial trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like",
+      "detail": "complete"
+    },
+    {
+      "item": "Probing run full_1_5b (qwen1.5b)",
+      "detail": "complete"
+    },
+    {
+      "item": "Probing run full_7b (qwen7b)",
+      "detail": "complete"
+    }
+  ],
+  "missing": [
+    {
+      "item": "Assignment slot 11 filled",
+      "detail": "Still missing from design (59/60 slots have a complete run)"
+    },
+    {
+      "item": "Human final_order field populated in CSV export",
+      "detail": "Recovered 236 orders via drag-event replay; 0 failed"
+    },
+    {
+      "item": "Model behavioural trial trial_20260525_002001_Qwen-Qwen3-8B__v5_human_like",
+      "detail": "failed/empty"
+    }
+  ],
+  "collected_figures": {
+    "01_human_rdms": [
+      "human__behavioural_pair_scaling__story_averaged_by_condition.png",
+      "human__behavioural_pair_scaling__per_story_condition.png"
+    ],
+    "02_second_order_rsa": [
+      "human__second_order_rsa__inter_story_by_condition.png",
+      "human__second_order_rsa__inter_condition_by_story.png"
+    ],
+    "03_human_vs_author": [
+      "human__behavioural_pair_scaling__vs_author_mantel_by_story.png",
+      "human_vs_author_summary.json"
+    ],
+    "04_cross_arm_probing": [
+      "cross_arm__qwen1.5b__probing_vs_human__mean_mantel_by_arm.png",
+      "probing_vs_human_full_1_5b.json",
+      "cross_arm__qwen7b__probing_vs_human__mean_mantel_by_arm.png",
+      "probing_vs_human_full_7b.json"
+    ],
+    "05_temporal_ordering": [
+      "ordering_summary.json",
+      "ordering__human__behavioural_drag__by_condition.png",
+      "ordering__human__behavioural_drag__pairwise_by_story.png",
+      "ordering__human_vs_models__behavioural__overall_metrics.png"
+    ],
+    "06_model_behavioural_sweep": [
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__headline_summary.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/headline.png",
+        "tag": "headline_summary"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__ordering_kendall_heatmap.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/orderings.png",
+        "tag": "ordering_kendall_heatmap"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__meta_rdm.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/meta_rdm.png",
+        "tag": "meta_rdm"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__inter_story_rdms.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/inter_story_rdms.png",
+        "tag": "inter_story_rdms"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__inter_condition_rdms.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/inter_condition_rdms.png",
+        "tag": "inter_condition_rdms"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__pair_scaling_vs_author.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/pair_scaling_vs_gold_metrics.png",
+        "tag": "pair_scaling_vs_author"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__cross_task_summary.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/cross_task_summary.png",
+        "tag": "cross_task_summary"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__condition_contrasts.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/condition_contrasts.png",
+        "tag": "condition_contrasts"
+      },
+      {
+        "file": "model_behavioural__Qwen-Qwen2.5-7B-Instruct__behavioural_prompt__comprehension_accuracy.png",
+        "model": "Qwen-Qwen2.5-7B-Instruct",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like/figures/diagnostics/comprehension_accuracy.png",
+        "tag": "comprehension_accuracy"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__headline_summary.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/headline.png",
+        "tag": "headline_summary"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__ordering_kendall_heatmap.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/orderings.png",
+        "tag": "ordering_kendall_heatmap"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__meta_rdm.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/meta_rdm.png",
+        "tag": "meta_rdm"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__inter_story_rdms.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/inter_story_rdms.png",
+        "tag": "inter_story_rdms"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__inter_condition_rdms.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/inter_condition_rdms.png",
+        "tag": "inter_condition_rdms"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__pair_scaling_vs_author.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/pair_scaling_vs_gold_metrics.png",
+        "tag": "pair_scaling_vs_author"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__cross_task_summary.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/cross_task_summary.png",
+        "tag": "cross_task_summary"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__condition_contrasts.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/condition_contrasts.png",
+        "tag": "condition_contrasts"
+      },
+      {
+        "file": "model_behavioural__mlx-community-Qwen2.5-14B-Instruct-4bit__behavioural_prompt__comprehension_accuracy.png",
+        "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+        "method": "behavioural_prompt (v5_human_like)",
+        "source": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like/figures/diagnostics/comprehension_accuracy.png",
+        "tag": "comprehension_accuracy"
+      }
+    ],
+    "07_model_probing": [
+      {
+        "file": "probing__qwen1.5b__position_probe__position_accuracy_by_layer.png",
+        "model": "qwen1.5b",
+        "method": "position_probe",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/position_probe/position_accuracy_by_layer.png",
+        "tag": "position_accuracy_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__pairwise_probe__pairwise_accuracy_by_layer.png",
+        "model": "qwen1.5b",
+        "method": "pairwise_probe",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/pairwise_probe/pairwise_accuracy_by_layer.png",
+        "tag": "pairwise_accuracy_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__causal_rdm__mantel_vs_author_by_layer.png",
+        "model": "qwen1.5b",
+        "method": "causal_rdm",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/causal_rdm/causal_mantel_by_layer.png",
+        "tag": "mantel_vs_author_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__geometry__cyclicity_by_layer.png",
+        "model": "qwen1.5b",
+        "method": "geometry",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/geometry/cyclicity_by_layer.png",
+        "tag": "cyclicity_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__geometry__event_planes_cosine.png",
+        "model": "qwen1.5b",
+        "method": "geometry",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/geometry/event_planes_cosine.png",
+        "tag": "event_planes_cosine",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__story_averaged_rdms.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/analysis_summary_rdms.png",
+        "tag": "story_averaged_rdms",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__perstory_linear.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/analysis_perstory_linear.png",
+        "tag": "perstory_linear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__perstory_nonlinear.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/analysis_perstory_nonlinear.png",
+        "tag": "perstory_nonlinear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__perstory_atemporal.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/analysis_perstory_atemporal.png",
+        "tag": "perstory_atemporal",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__three_arms_linear.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/per_story_three_arms_linear.png",
+        "tag": "three_arms_linear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__three_arms_nonlinear.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/per_story_three_arms_nonlinear.png",
+        "tag": "three_arms_nonlinear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen1.5b__probing_behavioural__three_arms_atemporal.png",
+        "model": "qwen1.5b",
+        "method": "probing_behavioural",
+        "probing_run": "full_1_5b",
+        "source": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/behavioural/per_story_three_arms_atemporal.png",
+        "tag": "three_arms_atemporal",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__position_probe__position_accuracy_by_layer.png",
+        "model": "qwen7b",
+        "method": "position_probe",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/position_probe/position_accuracy_by_layer.png",
+        "tag": "position_accuracy_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__pairwise_probe__pairwise_accuracy_by_layer.png",
+        "model": "qwen7b",
+        "method": "pairwise_probe",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/pairwise_probe/pairwise_accuracy_by_layer.png",
+        "tag": "pairwise_accuracy_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__causal_rdm__mantel_vs_author_by_layer.png",
+        "model": "qwen7b",
+        "method": "causal_rdm",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/causal_rdm/causal_mantel_by_layer.png",
+        "tag": "mantel_vs_author_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__geometry__cyclicity_by_layer.png",
+        "model": "qwen7b",
+        "method": "geometry",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/geometry/cyclicity_by_layer.png",
+        "tag": "cyclicity_by_layer",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__geometry__event_planes_cosine.png",
+        "model": "qwen7b",
+        "method": "geometry",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/geometry/event_planes_cosine.png",
+        "tag": "event_planes_cosine",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__story_averaged_rdms.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/analysis_summary_rdms.png",
+        "tag": "story_averaged_rdms",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__perstory_linear.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/analysis_perstory_linear.png",
+        "tag": "perstory_linear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__perstory_nonlinear.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/analysis_perstory_nonlinear.png",
+        "tag": "perstory_nonlinear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__perstory_atemporal.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/analysis_perstory_atemporal.png",
+        "tag": "perstory_atemporal",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__three_arms_linear.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/per_story_three_arms_linear.png",
+        "tag": "three_arms_linear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__three_arms_nonlinear.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/per_story_three_arms_nonlinear.png",
+        "tag": "three_arms_nonlinear",
+        "status": "complete"
+      },
+      {
+        "file": "probing__qwen7b__probing_behavioural__three_arms_atemporal.png",
+        "model": "qwen7b",
+        "method": "probing_behavioural",
+        "probing_run": "full_7b",
+        "source": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/behavioural/per_story_three_arms_atemporal.png",
+        "tag": "three_arms_atemporal",
+        "status": "complete"
+      }
+    ]
+  },
+  "canonical_paths": {
+    "human_csv": "human results/experiment-v21_all67.csv",
+    "human_audit": "human results/_audits/audit_all67.json",
+    "author_graphs": "author_intended_graphs.json",
+    "model_behavioural_sweep": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2",
+    "probing_runs": {
+      "full_1_5b": "model_arm/outputs_probing/run_20260709_131857_full_1_5b",
+      "full_7b": "model_arm/outputs_probing/run_20260709_134350_full_7b"
+    },
+    "analysis_hub": "analysis/"
+  }
+}

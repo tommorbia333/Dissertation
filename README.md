@@ -80,7 +80,7 @@ Each participant reads four of the six pool stories, in a position assigned by a
 - each story occupies each of the four positions exactly 10 times (exact, via the Williams squares);
 - story × condition cells contain 13 or 14 reads (the tightest achievable balance: 40/3 is not integer).
 
-Between-subjects condition assignment cycles in stratified blocks of 3 (`src/condition.js`); pair-presentation order and pair direction are randomised per participant within each story.
+Between-subjects condition is a deterministic function of the participant index (`condition = CONDITIONS[pIndex % 3]`, `src/condition.js`), so 60 balanced indices give exactly 20 participants per condition. In production the index is supplied by Cognition's server-side 60-way auto-balancer (`Inter experiment conditions = 60`), which also drives the story assignment — see `experiment_v2.1/README.md`. Pair-presentation order and pair direction are randomised per participant within each story.
 
 ## Human arm — quick start
 
@@ -118,21 +118,16 @@ python run_pilot.py pilot_prompt_manipulation
 
 A *sweep* is a (model × prompt-variant × story × condition × seed) grid. Each cell is a self-contained trial folder under `outputs/sweep_<...>/`, so individual cells can be re-run without disturbing the rest. The current model registry covers Qwen 2.5 (7B, 14B 4-bit, 32B 4-bit), Qwen 3 (8B, 14B 4-bit), Llama 3.1 8B, Mistral 7B (Hugging Face transformers and MLX 4-bit backends) plus GPT-4o and Claude Sonnet via API; full list in `model_arm/src/models.py`.
 
-The second-order analysis (`model_arm/src/meta_rsa.py`) computes inter-story, inter-condition and meta RDMs from each cell's 8×8 pair-scaling matrix using a *1 − Spearman ρ over the 56 off-diagonal cells* distance. The same interface is the target for the hidden-state probing stage below.
+The second-order analysis (`model_arm/src/meta_rsa.py`) computes inter-story, inter-condition and meta RDMs from each cell's 8×8 pair-scaling matrix using a *1 − Spearman ρ over the 56 off-diagonal cells* distance. The same interface is used by the hidden-state probing arm and the cross-arm comparison hub in `experiment_v2.1/analysis/`.
 
-## Planned: hidden-state probing (Stage 3)
+## Hidden-state probing (Stage 3)
 
-The behavioural mirror already tells us *what* the model outputs differ on across conditions. The probing stage targets *where in the model the temporal/causal structure is encoded*, by reading internal activations as the model works through the same battery.
+Implemented in `experiment_v2.1/model_arm/probing/` — see that folder's
+`README.md` for configs, studies (position/pairwise probes, causal Mantel,
+geometry, behavioural RDMs), and output layout under `outputs_probing/`.
 
-Working plan:
-
-1. **Activation capture.** Forward-hook the residual stream of each open-weights model (Qwen 2.5 7B, Qwen 3 8B, Llama 3.1 8B, Mistral 7B; possibly Qwen 14B/32B via MLX) at every transformer layer. Capture the hidden state at fixed anchor positions: (a) the final token of each event sentence during story reading, (b) the final token of each task prompt, (c) the model's first generated token for each task. Save to disk per (model, story, condition, seed, layer).
-2. **Event-level RDMs.** For each (model, condition, seed, layer), build an 8×8 event-by-event RDM from the cosine distance between the captured hidden-state vectors. This is the hidden-state analogue of the human/model 8×8 pair-scaling matrix.
-3. **RSA against behaviour and ground truth.** Reuse the existing second-order RSA machinery in `meta_rsa.py` to compute three Spearman correlations per layer: hidden-state RDM vs (a) the model's own pair-scaling RDM, (b) the human pair-scaling RDM (where available), (c) an RDM derived from the gold-standard causal graph. The layer-by-layer correlation curve isolates *which depth* of the network represents which level of structure.
-4. **Condition contrasts.** The headline contrast is the same as in the behavioural arm: does the linear → atemporal manipulation reshape internal representations, and at which layer is the shift largest? Each story acts as its own paired baseline.
-5. **Linear probes (secondary).** For each model and layer, train a lightweight linear classifier on the captured states to predict (i) the canonical chronological position of the event, (ii) the existence of a causal edge between two named events. Probe accuracy by layer complements the RSA picture.
-
-This stage will live in a new sibling folder, `experiment_v2.1/model_arm/probing/`, with its own `README.md`, configs, and outputs schema. It will reuse the same stimulus loader, sweep-folder convention, and RDM/RSA utilities as the behavioural arm, so analyses can stay in one place across the three stages.
+Cross-arm comparison (human ↔ model behavioural ↔ probing) is orchestrated from
+`experiment_v2.1/analysis/` — start at `analysis/README.md`.
 
 ## Licence
 

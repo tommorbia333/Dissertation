@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporal Scaffolding Experiment — Local Test</title>
+
+  <!-- jsPsych 8.x core + plugins via jsDelivr CDN.
+       Versions pinned for reproducibility; bump in config.js for upgrades. -->
+  <script src="https://unpkg.com/jspsych@8.2.1"></script>
+  <link  href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-slider-response@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-instructions@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-preload@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-call-function@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-html-form@2.0.0"></script>
+
+  <!-- SortableJS: drag-to-reorder for the chronological ordering task -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- Stimuli & config (load order matters: config → stimuli → utils → modules → tasks → main) -->
+  <script src="src/config.js"></script>
+  <script src="stimuli/stories.js"></script>
+  <script src="stimuli/comprehension.js"></script>
+  <script src="stimuli/event_cards.js"></script>
+  <script src="stimuli/cf_probes.js"></script>
+  <script src="stimuli/assignments.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/condition.js"></script>
+  <script src="src/selection.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/tasks/story_reading.js"></script>
+  <script src="src/tasks/comprehension.js"></script>
+  <script src="src/tasks/ordering.js"></script>
+  <script src="src/tasks/pair_scaling.js"></script>
+  <script src="src/tasks/counterfactual.js"></script>
+  <script src="src/intro.js"></script>
+  <script src="src/inter_story.js"></script>
+  <script src="src/outro.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>

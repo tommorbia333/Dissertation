@@ -1,0 +1,236 @@
+{
+  "story_subset": "human_pool_6",
+  "rows": [
+    {
+      "condition": "linear",
+      "arm": "human_vs_author",
+      "mean_mantel_r": 0.6275707511933624,
+      "mean_spearman_distance": 0.4695205754619505,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "human_vs_author",
+      "mean_mantel_r": 0.6288627581264031,
+      "mean_spearman_distance": 0.47256085357480965,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "human_vs_author",
+      "mean_mantel_r": 0.6120473875426241,
+      "mean_spearman_distance": 0.4792428752613156,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "model_behavioural:Qwen-Qwen2.5-7B-Instruct",
+      "mean_mantel_r": 0.6984025293126388,
+      "mean_spearman_distance": 0.2966559131096298,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "model_behavioural:Qwen-Qwen2.5-7B-Instruct",
+      "mean_mantel_r": 0.6870389008619678,
+      "mean_spearman_distance": 0.31993440864252326,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "model_behavioural:Qwen-Qwen2.5-7B-Instruct",
+      "mean_mantel_r": 0.661491045370299,
+      "mean_spearman_distance": 0.304957761097096,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "model_behavioural:mlx-community-Qwen2.5-14B-Instruct-4bit",
+      "mean_mantel_r": 0.5077659530260058,
+      "mean_spearman_distance": 0.45159581612649685,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "model_behavioural:mlx-community-Qwen2.5-14B-Instruct-4bit",
+      "mean_mantel_r": 0.43944030334465806,
+      "mean_spearman_distance": 0.5264899787542676,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "model_behavioural:mlx-community-Qwen2.5-14B-Instruct-4bit",
+      "mean_mantel_r": 0.4309508083124763,
+      "mean_spearman_distance": 0.5234013893239133,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_1_5b:author",
+      "mean_mantel_r": 0.6275707511933624,
+      "mean_spearman_distance": 0.4695205754619505,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_1_5b:behavioural",
+      "mean_mantel_r": 0.22711354186935526,
+      "mean_spearman_distance": 0.7977348619990798,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_1_5b:prompted",
+      "mean_mantel_r": 0.19275641163668303,
+      "mean_spearman_distance": 0.8011861713842946,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_1_5b:reading",
+      "mean_mantel_r": -0.00041326235508295134,
+      "mean_spearman_distance": 0.9950797222566446,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_1_5b:author",
+      "mean_mantel_r": 0.6288627581264031,
+      "mean_spearman_distance": 0.47256085357480965,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_1_5b:behavioural",
+      "mean_mantel_r": 0.11469143758684881,
+      "mean_spearman_distance": 0.915898690753106,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_1_5b:prompted",
+      "mean_mantel_r": 0.2567086410712774,
+      "mean_spearman_distance": 0.7721264720252674,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_1_5b:reading",
+      "mean_mantel_r": 0.012856708783727822,
+      "mean_spearman_distance": 0.9771116245855217,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_1_5b:author",
+      "mean_mantel_r": 0.6120473875426241,
+      "mean_spearman_distance": 0.4792428752613156,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_1_5b:behavioural",
+      "mean_mantel_r": 0.13260551506459814,
+      "mean_spearman_distance": 0.8755721661235798,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_1_5b:prompted",
+      "mean_mantel_r": 0.19633435942138697,
+      "mean_spearman_distance": 0.7932450911968987,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_1_5b:reading",
+      "mean_mantel_r": -0.04967016662497858,
+      "mean_spearman_distance": 1.0134684050032656,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_7b:author",
+      "mean_mantel_r": 0.6275707511933624,
+      "mean_spearman_distance": 0.4695205754619505,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_7b:behavioural",
+      "mean_mantel_r": 0.5446915259561946,
+      "mean_spearman_distance": 0.47675554990834984,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_7b:prompted",
+      "mean_mantel_r": 0.30284496992112253,
+      "mean_spearman_distance": 0.6841772770422262,
+      "n_stories": 6
+    },
+    {
+      "condition": "linear",
+      "arm": "probing:full_7b:reading",
+      "mean_mantel_r": 0.021557771241398477,
+      "mean_spearman_distance": 1.0026936632639818,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_7b:author",
+      "mean_mantel_r": 0.6288627581264031,
+      "mean_spearman_distance": 0.47256085357480965,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_7b:behavioural",
+      "mean_mantel_r": 0.5165251468987323,
+      "mean_spearman_distance": 0.514072632236392,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_7b:prompted",
+      "mean_mantel_r": 0.3396706380964935,
+      "mean_spearman_distance": 0.6865895568958863,
+      "n_stories": 6
+    },
+    {
+      "condition": "nonlinear",
+      "arm": "probing:full_7b:reading",
+      "mean_mantel_r": 0.03398580411165384,
+      "mean_spearman_distance": 0.9733476748342939,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_7b:author",
+      "mean_mantel_r": 0.6120473875426241,
+      "mean_spearman_distance": 0.4792428752613156,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_7b:behavioural",
+      "mean_mantel_r": 0.5644792641929467,
+      "mean_spearman_distance": 0.4674863105283386,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_7b:prompted",
+      "mean_mantel_r": 0.250925988887767,
+      "mean_spearman_distance": 0.7432942184535118,
+      "n_stories": 6
+    },
+    {
+      "condition": "atemporal",
+      "arm": "probing:full_7b:reading",
+      "mean_mantel_r": -0.0032967416553533867,
+      "mean_spearman_distance": 1.005213510006497,
+      "n_stories": 6
+    }
+  ]
+}

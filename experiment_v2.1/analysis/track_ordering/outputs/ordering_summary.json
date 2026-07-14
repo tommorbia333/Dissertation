@@ -1,0 +1,433 @@
+{
+  "human": {
+    "source": "human_pair_scaling_arm",
+    "method": "behavioural_drag_ordering",
+    "selection": "canonical",
+    "n_trials": 236,
+    "n_valid": 236,
+    "order_recovery": {
+      "from_final_order_field": 0,
+      "from_events_replay": 236,
+      "failed": 0,
+      "note": "Cognition CSV exports often leave final_order=[] / kendall_tau_to_canonical=null; orders are reconstructed by replaying drag_end_moved events onto initial_order."
+    },
+    "max_kendall": 28,
+    "overall": {
+      "n": 236,
+      "mean_kendall_tau_distance": 2.26271186440678,
+      "exact_match_rate": 0.423728813559322,
+      "mean_pairwise_accuracy": 0.9191888619854722
+    },
+    "by_condition": {
+      "linear": {
+        "n": 80,
+        "mean_kendall_tau_distance": 1.1875,
+        "exact_match_rate": 0.6125,
+        "mean_pairwise_accuracy": 0.9575892857142858
+      },
+      "nonlinear": {
+        "n": 80,
+        "mean_kendall_tau_distance": 2.0375,
+        "exact_match_rate": 0.35,
+        "mean_pairwise_accuracy": 0.9272321428571431
+      },
+      "atemporal": {
+        "n": 76,
+        "mean_kendall_tau_distance": 3.6315789473684212,
+        "exact_match_rate": 0.3026315789473684,
+        "mean_pairwise_accuracy": 0.8703007518796992
+      }
+    },
+    "by_story": {
+      "hospital_incident": {
+        "n": 40,
+        "mean_kendall_tau_distance": 2.175,
+        "exact_match_rate": 0.425,
+        "mean_pairwise_accuracy": 0.9223214285714285
+      },
+      "community_fair": {
+        "n": 39,
+        "mean_kendall_tau_distance": 3.6666666666666665,
+        "exact_match_rate": 0.15384615384615385,
+        "mean_pairwise_accuracy": 0.8690476190476192
+      },
+      "restaurant_fire": {
+        "n": 39,
+        "mean_kendall_tau_distance": 2.3333333333333335,
+        "exact_match_rate": 0.46153846153846156,
+        "mean_pairwise_accuracy": 0.9166666666666669
+      },
+      "school_trip": {
+        "n": 40,
+        "mean_kendall_tau_distance": 1.7,
+        "exact_match_rate": 0.6,
+        "mean_pairwise_accuracy": 0.9392857142857143
+      },
+      "power_cut": {
+        "n": 39,
+        "mean_kendall_tau_distance": 1.1538461538461537,
+        "exact_match_rate": 0.717948717948718,
+        "mean_pairwise_accuracy": 0.9587912087912088
+      },
+      "missed_flight": {
+        "n": 39,
+        "mean_kendall_tau_distance": 2.5641025641025643,
+        "exact_match_rate": 0.1794871794871795,
+        "mean_pairwise_accuracy": 0.9084249084249086
+      }
+    },
+    "by_story_condition": {
+      "hospital_incident__linear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 1.6153846153846154,
+        "exact_match_rate": 0.7692307692307693,
+        "mean_pairwise_accuracy": 0.9423076923076923
+      },
+      "hospital_incident__nonlinear": {
+        "n": 14,
+        "mean_kendall_tau_distance": 2.357142857142857,
+        "exact_match_rate": 0.21428571428571427,
+        "mean_pairwise_accuracy": 0.9158163265306124
+      },
+      "hospital_incident__atemporal": {
+        "n": 13,
+        "mean_kendall_tau_distance": 2.5384615384615383,
+        "exact_match_rate": 0.3076923076923077,
+        "mean_pairwise_accuracy": 0.9093406593406593
+      },
+      "community_fair__linear": {
+        "n": 14,
+        "mean_kendall_tau_distance": 2.2142857142857144,
+        "exact_match_rate": 0.35714285714285715,
+        "mean_pairwise_accuracy": 0.9209183673469388
+      },
+      "community_fair__nonlinear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 3.923076923076923,
+        "exact_match_rate": 0.07692307692307693,
+        "mean_pairwise_accuracy": 0.8598901098901097
+      },
+      "community_fair__atemporal": {
+        "n": 12,
+        "mean_kendall_tau_distance": 5.083333333333333,
+        "exact_match_rate": 0.0,
+        "mean_pairwise_accuracy": 0.8184523809523809
+      },
+      "restaurant_fire__linear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 1.1538461538461537,
+        "exact_match_rate": 0.38461538461538464,
+        "mean_pairwise_accuracy": 0.9587912087912087
+      },
+      "restaurant_fire__nonlinear": {
+        "n": 14,
+        "mean_kendall_tau_distance": 1.3571428571428572,
+        "exact_match_rate": 0.5,
+        "mean_pairwise_accuracy": 0.951530612244898
+      },
+      "restaurant_fire__atemporal": {
+        "n": 12,
+        "mean_kendall_tau_distance": 4.75,
+        "exact_match_rate": 0.5,
+        "mean_pairwise_accuracy": 0.8303571428571428
+      },
+      "school_trip__linear": {
+        "n": 14,
+        "mean_kendall_tau_distance": 0.9285714285714286,
+        "exact_match_rate": 0.7857142857142857,
+        "mean_pairwise_accuracy": 0.9668367346938777
+      },
+      "school_trip__nonlinear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 1.2307692307692308,
+        "exact_match_rate": 0.5384615384615384,
+        "mean_pairwise_accuracy": 0.9560439560439561
+      },
+      "school_trip__atemporal": {
+        "n": 13,
+        "mean_kendall_tau_distance": 3.0,
+        "exact_match_rate": 0.46153846153846156,
+        "mean_pairwise_accuracy": 0.8928571428571429
+      },
+      "power_cut__linear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 0.15384615384615385,
+        "exact_match_rate": 0.8461538461538461,
+        "mean_pairwise_accuracy": 0.9945054945054945
+      },
+      "power_cut__nonlinear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 0.23076923076923078,
+        "exact_match_rate": 0.7692307692307693,
+        "mean_pairwise_accuracy": 0.9917582417582417
+      },
+      "power_cut__atemporal": {
+        "n": 13,
+        "mean_kendall_tau_distance": 3.076923076923077,
+        "exact_match_rate": 0.5384615384615384,
+        "mean_pairwise_accuracy": 0.8901098901098901
+      },
+      "missed_flight__linear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 1.0,
+        "exact_match_rate": 0.5384615384615384,
+        "mean_pairwise_accuracy": 0.9642857142857142
+      },
+      "missed_flight__nonlinear": {
+        "n": 13,
+        "mean_kendall_tau_distance": 3.1538461538461537,
+        "exact_match_rate": 0.0,
+        "mean_pairwise_accuracy": 0.8873626373626374
+      },
+      "missed_flight__atemporal": {
+        "n": 13,
+        "mean_kendall_tau_distance": 3.5384615384615383,
+        "exact_match_rate": 0.0,
+        "mean_pairwise_accuracy": 0.8736263736263735
+      }
+    }
+  },
+  "model_behavioural": [
+    {
+      "trial_dir": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_120241_Qwen-Qwen2.5-7B-Instruct__v5_human_like",
+      "model": "Qwen-Qwen2.5-7B-Instruct",
+      "prompt_variant": "v5_human_like",
+      "method": "behavioural_prompt_ordering",
+      "label": "Qwen-Qwen2.5-7B-Instruct / behavioural ordering (v5_human_like)",
+      "n_trials": 90,
+      "overall": {
+        "n": 90,
+        "mean_kendall_tau_distance": 6.921348314606742,
+        "exact_match_rate": 0.056179775280898875,
+        "mean_pairwise_accuracy": 0.7528089887640449
+      },
+      "by_condition": {
+        "atemporal": {
+          "n": 30,
+          "mean_kendall_tau_distance": 9.966666666666667,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.644047619047619
+        },
+        "linear": {
+          "n": 30,
+          "mean_kendall_tau_distance": 3.7666666666666666,
+          "exact_match_rate": 0.16666666666666666,
+          "mean_pairwise_accuracy": 0.8654761904761905
+        },
+        "nonlinear": {
+          "n": 30,
+          "mean_kendall_tau_distance": 7.0344827586206895,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.7487684729064038
+        }
+      },
+      "by_story": {
+        "community_fair": {
+          "n": 15,
+          "mean_kendall_tau_distance": 8.133333333333333,
+          "exact_match_rate": 0.06666666666666667,
+          "mean_pairwise_accuracy": 0.7095238095238094
+        },
+        "hospital_incident": {
+          "n": 15,
+          "mean_kendall_tau_distance": 8.6,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.6928571428571431
+        },
+        "missed_flight": {
+          "n": 15,
+          "mean_kendall_tau_distance": 3.7142857142857144,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.8673469387755104
+        },
+        "power_cut": {
+          "n": 15,
+          "mean_kendall_tau_distance": 8.2,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.7071428571428572
+        },
+        "restaurant_fire": {
+          "n": 15,
+          "mean_kendall_tau_distance": 8.6,
+          "exact_match_rate": 0.13333333333333333,
+          "mean_pairwise_accuracy": 0.6928571428571427
+        },
+        "school_trip": {
+          "n": 15,
+          "mean_kendall_tau_distance": 4.066666666666666,
+          "exact_match_rate": 0.13333333333333333,
+          "mean_pairwise_accuracy": 0.8547619047619047
+        }
+      }
+    },
+    {
+      "trial_dir": "model_arm/outputs/sweep_20260524_120056_main_run_v5_prompt_2/trial_20260524_152901_mlx-community-Qwen2.5-14B-Instruct-4bit__v5_human_like",
+      "model": "mlx-community-Qwen2.5-14B-Instruct-4bit",
+      "prompt_variant": "v5_human_like",
+      "method": "behavioural_prompt_ordering",
+      "label": "mlx-community-Qwen2.5-14B-Instruct-4bit / behavioural ordering (v5_human_like)",
+      "n_trials": 90,
+      "overall": {
+        "n": 90,
+        "mean_kendall_tau_distance": 2.7777777777777777,
+        "exact_match_rate": 0.3888888888888889,
+        "mean_pairwise_accuracy": 0.9007936507936508
+      },
+      "by_condition": {
+        "atemporal": {
+          "n": 30,
+          "mean_kendall_tau_distance": 5.933333333333334,
+          "exact_match_rate": 0.0,
+          "mean_pairwise_accuracy": 0.788095238095238
+        },
+        "linear": {
+          "n": 30,
+          "mean_kendall_tau_distance": 0.6666666666666666,
+          "exact_match_rate": 0.6666666666666666,
+          "mean_pairwise_accuracy": 0.9761904761904763
+        },
+        "nonlinear": {
+          "n": 30,
+          "mean_kendall_tau_distance": 1.7333333333333334,
+          "exact_match_rate": 0.5,
+          "mean_pairwise_accuracy": 0.9380952380952382
+        }
+      },
+      "by_story": {
+        "community_fair": {
+          "n": 15,
+          "mean_kendall_tau_distance": 3.933333333333333,
+          "exact_match_rate": 0.06666666666666667,
+          "mean_pairwise_accuracy": 0.8595238095238096
+        },
+        "hospital_incident": {
+          "n": 15,
+          "mean_kendall_tau_distance": 1.2666666666666666,
+          "exact_match_rate": 0.5333333333333333,
+          "mean_pairwise_accuracy": 0.9547619047619048
+        },
+        "missed_flight": {
+          "n": 15,
+          "mean_kendall_tau_distance": 4.0,
+          "exact_match_rate": 0.06666666666666667,
+          "mean_pairwise_accuracy": 0.8571428571428571
+        },
+        "power_cut": {
+          "n": 15,
+          "mean_kendall_tau_distance": 2.8666666666666667,
+          "exact_match_rate": 0.5333333333333333,
+          "mean_pairwise_accuracy": 0.8976190476190476
+        },
+        "restaurant_fire": {
+          "n": 15,
+          "mean_kendall_tau_distance": 3.4,
+          "exact_match_rate": 0.5333333333333333,
+          "mean_pairwise_accuracy": 0.8785714285714284
+        },
+        "school_trip": {
+          "n": 15,
+          "mean_kendall_tau_distance": 1.2,
+          "exact_match_rate": 0.6,
+          "mean_pairwise_accuracy": 0.9571428571428573
+        }
+      }
+    }
+  ],
+  "probing_temporal": [
+    {
+      "probing_run_key": "full_1_5b",
+      "model_key": "qwen1.5b",
+      "run_dir": "model_arm/outputs_probing/run_20260709_131857_full_1_5b",
+      "status": "complete",
+      "position_probe": {
+        "method": "position_probe_LOSO",
+        "artefact": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/position_probe/position_accuracy.npz",
+        "npz_keys": [
+          "linear",
+          "nonlinear",
+          "atemporal"
+        ],
+        "mean_accuracy_by_condition": {
+          "linear": 0.2925646551724138,
+          "nonlinear": 0.3103448275862069,
+          "atemporal": 0.31788793103448276
+        },
+        "mean_accuracy": 0.30693247126436785,
+        "figure": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/position_probe/position_accuracy_by_layer.png"
+      },
+      "pairwise_probe": {
+        "method": "pairwise_probe_before_after_concurrent",
+        "artefact": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/pairwise_probe/pairwise_accuracy.npz",
+        "npz_keys": [
+          "baseline",
+          "acc_linear",
+          "acc_nonlinear",
+          "acc_atemporal",
+          "acc_balanced_nonlinear",
+          "acc_scramble_linear",
+          "acc_scramble_nonlinear",
+          "acc_scramble_atemporal"
+        ],
+        "baseline_accuracy": 0.4799107142857143,
+        "mean_accuracy_by_condition": {
+          "linear": 0.7242918719211822,
+          "nonlinear": 0.7156711822660098,
+          "atemporal": 0.7033559113300494
+        },
+        "mean_accuracy": 0.7144396551724137,
+        "figure": "model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b/pairwise_probe/pairwise_accuracy_by_layer.png"
+      },
+      "note": "These are hidden-state decode probes, NOT the behavioural drag/prompt ordering task. Included as related temporal measures."
+    },
+    {
+      "probing_run_key": "full_7b",
+      "model_key": "qwen7b",
+      "run_dir": "model_arm/outputs_probing/run_20260709_134350_full_7b",
+      "status": "complete",
+      "position_probe": {
+        "method": "position_probe_LOSO",
+        "artefact": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/position_probe/position_accuracy.npz",
+        "npz_keys": [
+          "linear",
+          "nonlinear",
+          "atemporal"
+        ],
+        "mean_accuracy_by_condition": {
+          "linear": 0.2947198275862069,
+          "nonlinear": 0.30441810344827586,
+          "atemporal": 0.3151939655172414
+        },
+        "mean_accuracy": 0.30477729885057475,
+        "figure": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/position_probe/position_accuracy_by_layer.png"
+      },
+      "pairwise_probe": {
+        "method": "pairwise_probe_before_after_concurrent",
+        "artefact": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/pairwise_probe/pairwise_accuracy.npz",
+        "npz_keys": [
+          "baseline",
+          "acc_linear",
+          "acc_nonlinear",
+          "acc_atemporal",
+          "acc_balanced_nonlinear",
+          "acc_scramble_linear",
+          "acc_scramble_nonlinear",
+          "acc_scramble_atemporal"
+        ],
+        "baseline_accuracy": 0.4799107142857143,
+        "mean_accuracy_by_condition": {
+          "linear": 0.7333743842364532,
+          "nonlinear": 0.7192118226600985,
+          "atemporal": 0.715979064039409
+        },
+        "mean_accuracy": 0.7228550903119869,
+        "figure": "model_arm/outputs_probing/run_20260709_134350_full_7b/qwen7b/pairwise_probe/pairwise_accuracy_by_layer.png"
+      },
+      "note": "These are hidden-state decode probes, NOT the behavioural drag/prompt ordering task. Included as related temporal measures."
+    }
+  ],
+  "caveats": [
+    "Human ordering uses a fixed preregistered scramble; model behavioural ordering uses a seed-dependent shuffle.",
+    "Probing position/pairwise probes decode temporal structure from hidden states \u2014 not the same as producing an ordered sequence.",
+    "Cognition CSV exports often leave final_order=[] / kendall_tau_to_canonical=null; orders are reconstructed by replaying drag_end_moved events onto initial_order."
+  ]
+}

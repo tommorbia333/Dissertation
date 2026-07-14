@@ -1,0 +1,246 @@
+{
+  "topology_family": {
+    "hospital_incident": "convergent",
+    "care_home_incident": "convergent",
+    "community_fair": "convergent",
+    "restaurant_fire": "chain",
+    "power_cut": "chain",
+    "family_conflict": "chain",
+    "school_trip": "fan_out",
+    "missed_flight": "hourglass"
+  },
+  "human_vs_author_by_topology": {
+    "per_story_condition": [
+      {
+        "story_id": "hospital_incident",
+        "condition": "linear",
+        "topology_family": "convergent",
+        "mantel_r": 0.5059188978058308,
+        "spearman_distance": 0.5314291753074982
+      },
+      {
+        "story_id": "community_fair",
+        "condition": "linear",
+        "topology_family": "convergent",
+        "mantel_r": 0.7310392884250628,
+        "spearman_distance": 0.4345006962552397
+      },
+      {
+        "story_id": "restaurant_fire",
+        "condition": "linear",
+        "topology_family": "chain",
+        "mantel_r": 0.5681485456612234,
+        "spearman_distance": 0.5219580168047667
+      },
+      {
+        "story_id": "school_trip",
+        "condition": "linear",
+        "topology_family": "fan_out",
+        "mantel_r": 0.6274475872380262,
+        "spearman_distance": 0.42601765558154536
+      },
+      {
+        "story_id": "power_cut",
+        "condition": "linear",
+        "topology_family": "chain",
+        "mantel_r": 0.6618697117590708,
+        "spearman_distance": 0.4397560313126878
+      },
+      {
+        "story_id": "missed_flight",
+        "condition": "linear",
+        "topology_family": "hourglass",
+        "mantel_r": 0.6710004762709602,
+        "spearman_distance": 0.46346187750996526
+      },
+      {
+        "story_id": "hospital_incident",
+        "condition": "nonlinear",
+        "topology_family": "convergent",
+        "mantel_r": 0.4946352866911888,
+        "spearman_distance": 0.5370849978074375
+      },
+      {
+        "story_id": "community_fair",
+        "condition": "nonlinear",
+        "topology_family": "convergent",
+        "mantel_r": 0.761720625447151,
+        "spearman_distance": 0.41912597348173597
+      },
+      {
+        "story_id": "restaurant_fire",
+        "condition": "nonlinear",
+        "topology_family": "chain",
+        "mantel_r": 0.6101966494450948,
+        "spearman_distance": 0.4973295070283147
+      },
+      {
+        "story_id": "school_trip",
+        "condition": "nonlinear",
+        "topology_family": "fan_out",
+        "mantel_r": 0.6241422938859911,
+        "spearman_distance": 0.4419734165872996
+      },
+      {
+        "story_id": "power_cut",
+        "condition": "nonlinear",
+        "topology_family": "chain",
+        "mantel_r": 0.5938064169081914,
+        "spearman_distance": 0.4804046893737174
+      },
+      {
+        "story_id": "missed_flight",
+        "condition": "nonlinear",
+        "topology_family": "hourglass",
+        "mantel_r": 0.6886752763808018,
+        "spearman_distance": 0.4594465371703528
+      },
+      {
+        "story_id": "hospital_incident",
+        "condition": "atemporal",
+        "topology_family": "convergent",
+        "mantel_r": 0.5351401992914481,
+        "spearman_distance": 0.5186897814459135
+      },
+      {
+        "story_id": "community_fair",
+        "condition": "atemporal",
+        "topology_family": "convergent",
+        "mantel_r": 0.7056737914598893,
+        "spearman_distance": 0.4628600145156031
+      },
+      {
+        "story_id": "restaurant_fire",
+        "condition": "atemporal",
+        "topology_family": "chain",
+        "mantel_r": 0.5496356831332949,
+        "spearman_distance": 0.5124063415546096
+      },
+      {
+        "story_id": "school_trip",
+        "condition": "atemporal",
+        "topology_family": "fan_out",
+        "mantel_r": 0.6121434113067132,
+        "spearman_distance": 0.4519767505811857
+      },
+      {
+        "story_id": "power_cut",
+        "condition": "atemporal",
+        "topology_family": "chain",
+        "mantel_r": 0.5744240499047831,
+        "spearman_distance": 0.4772337871449638
+      },
+      {
+        "story_id": "missed_flight",
+        "condition": "atemporal",
+        "topology_family": "hourglass",
+        "mantel_r": 0.6952671901596161,
+        "spearman_distance": 0.45229057632561775
+      }
+    ],
+    "by_family": {
+      "convergent": {
+        "n": 6,
+        "mean_mantel_r": 0.6223546815200951,
+        "mean_spearman_distance": 0.48394843980223795
+      },
+      "chain": {
+        "n": 6,
+        "mean_mantel_r": 0.5930135094686096,
+        "mean_spearman_distance": 0.48818139553650997
+      },
+      "fan_out": {
+        "n": 3,
+        "mean_mantel_r": 0.6212444308102435,
+        "mean_spearman_distance": 0.4399892742500102
+      },
+      "hourglass": {
+        "n": 3,
+        "mean_mantel_r": 0.684980980937126,
+        "mean_spearman_distance": 0.4583996636686452
+      }
+    },
+    "by_family_condition": {
+      "chain__linear": {
+        "n": 2,
+        "mean_mantel_r": 0.6150091287101471,
+        "mean_spearman_distance": 0.48085702405872727
+      },
+      "chain__nonlinear": {
+        "n": 2,
+        "mean_mantel_r": 0.6020015331766431,
+        "mean_spearman_distance": 0.48886709820101604
+      },
+      "chain__atemporal": {
+        "n": 2,
+        "mean_mantel_r": 0.5620298665190391,
+        "mean_spearman_distance": 0.4948200643497867
+      },
+      "convergent__linear": {
+        "n": 2,
+        "mean_mantel_r": 0.6184790931154468,
+        "mean_spearman_distance": 0.48296493578136895
+      },
+      "convergent__nonlinear": {
+        "n": 2,
+        "mean_mantel_r": 0.6281779560691699,
+        "mean_spearman_distance": 0.4781054856445867
+      },
+      "convergent__atemporal": {
+        "n": 2,
+        "mean_mantel_r": 0.6204069953756687,
+        "mean_spearman_distance": 0.4907748979807583
+      },
+      "fan_out__linear": {
+        "n": 1,
+        "mean_mantel_r": 0.6274475872380262,
+        "mean_spearman_distance": 0.42601765558154536
+      },
+      "fan_out__nonlinear": {
+        "n": 1,
+        "mean_mantel_r": 0.6241422938859911,
+        "mean_spearman_distance": 0.4419734165872996
+      },
+      "fan_out__atemporal": {
+        "n": 1,
+        "mean_mantel_r": 0.6121434113067132,
+        "mean_spearman_distance": 0.4519767505811857
+      },
+      "hourglass__linear": {
+        "n": 1,
+        "mean_mantel_r": 0.6710004762709602,
+        "mean_spearman_distance": 0.46346187750996526
+      },
+      "hourglass__nonlinear": {
+        "n": 1,
+        "mean_mantel_r": 0.6886752763808018,
+        "mean_spearman_distance": 0.4594465371703528
+      },
+      "hourglass__atemporal": {
+        "n": 1,
+        "mean_mantel_r": 0.6952671901596161,
+        "mean_spearman_distance": 0.45229057632561775
+      }
+    }
+  },
+  "inter_story_within_vs_across_family": {
+    "linear": {
+      "within_family_mean_distance": 0.4566740987937478,
+      "within_family_n_pairs": 2,
+      "across_family_mean_distance": 0.40456596783507537,
+      "across_family_n_pairs": 13
+    },
+    "nonlinear": {
+      "within_family_mean_distance": 0.49963745739026083,
+      "within_family_n_pairs": 2,
+      "across_family_mean_distance": 0.41493071113936436,
+      "across_family_n_pairs": 13
+    },
+    "atemporal": {
+      "within_family_mean_distance": 0.489157547699135,
+      "within_family_n_pairs": 2,
+      "across_family_mean_distance": 0.42426339279004427,
+      "across_family_n_pairs": 13
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "run_id": "full_1_5b",
+  "timestamp": "2026-07-09T12:18:57.387540Z",
+  "models": [
+    "qwen1.5b"
+  ],
+  "analyses": [
+    "position_probe",
+    "pairwise_probe",
+    "causal_rdm",
+    "causal_rdm_extra",
+    "geometry",
+    "behavioural"
+  ],
+  "story_keys": [
+    "care_home_incident",
+    "community_fair",
+    "family_conflict",
+    "hospital_incident",
+    "missed_flight",
+    "power_cut",
+    "restaurant_fire",
+    "school_trip"
+  ],
+  "conditions": [
+    "linear",
+    "nonlinear",
+    "atemporal"
+  ],
+  "scale_max": 6,
+  "rep_layer": 20,
+  "n_perm": 1000,
+  "per_model": [
+    {
+      "model_key": "qwen1.5b",
+      "model_id": "Qwen/Qwen2.5-1.5B",
+      "dir": "/Users/tommaso/Desktop/Dissertation/experiment_v2.1/model_arm/outputs_probing/run_20260709_131857_full_1_5b/qwen1.5b"
+    }
+  ]
+}

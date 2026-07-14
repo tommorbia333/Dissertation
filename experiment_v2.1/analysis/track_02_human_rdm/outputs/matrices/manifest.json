@@ -1,0 +1,1897 @@
+{
+  "selection": "canonical",
+  "story_subset": "human_pool_6",
+  "n_matrices": 236,
+  "n_errors": 0,
+  "errors": [],
+  "matrices": [
+    {
+      "file": "run2__hospital_incident__linear.npz",
+      "run_id": "2",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "30",
+      "attn_correct": true
+    },
+    {
+      "file": "run2__community_fair__linear.npz",
+      "run_id": "2",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "30",
+      "attn_correct": true
+    },
+    {
+      "file": "run2__missed_flight__linear.npz",
+      "run_id": "2",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "30",
+      "attn_correct": true
+    },
+    {
+      "file": "run2__restaurant_fire__linear.npz",
+      "run_id": "2",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "30",
+      "attn_correct": true
+    },
+    {
+      "file": "run4__community_fair__linear.npz",
+      "run_id": "4",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "39",
+      "attn_correct": true
+    },
+    {
+      "file": "run4__school_trip__linear.npz",
+      "run_id": "4",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "39",
+      "attn_correct": true
+    },
+    {
+      "file": "run4__hospital_incident__linear.npz",
+      "run_id": "4",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "39",
+      "attn_correct": true
+    },
+    {
+      "file": "run4__missed_flight__linear.npz",
+      "run_id": "4",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "39",
+      "attn_correct": true
+    },
+    {
+      "file": "run5__hospital_incident__nonlinear.npz",
+      "run_id": "5",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "22",
+      "attn_correct": true
+    },
+    {
+      "file": "run5__restaurant_fire__nonlinear.npz",
+      "run_id": "5",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "22",
+      "attn_correct": true
+    },
+    {
+      "file": "run5__power_cut__nonlinear.npz",
+      "run_id": "5",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "22",
+      "attn_correct": true
+    },
+    {
+      "file": "run5__school_trip__nonlinear.npz",
+      "run_id": "5",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "22",
+      "attn_correct": true
+    },
+    {
+      "file": "run6__power_cut__linear.npz",
+      "run_id": "6",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "54",
+      "attn_correct": true
+    },
+    {
+      "file": "run6__missed_flight__linear.npz",
+      "run_id": "6",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "54",
+      "attn_correct": true
+    },
+    {
+      "file": "run6__restaurant_fire__linear.npz",
+      "run_id": "6",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "54",
+      "attn_correct": true
+    },
+    {
+      "file": "run6__hospital_incident__linear.npz",
+      "run_id": "6",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "54",
+      "attn_correct": true
+    },
+    {
+      "file": "run7__school_trip__linear.npz",
+      "run_id": "7",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "9",
+      "attn_correct": true
+    },
+    {
+      "file": "run7__missed_flight__linear.npz",
+      "run_id": "7",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "9",
+      "attn_correct": true
+    },
+    {
+      "file": "run7__restaurant_fire__linear.npz",
+      "run_id": "7",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "9",
+      "attn_correct": true
+    },
+    {
+      "file": "run7__hospital_incident__linear.npz",
+      "run_id": "7",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "9",
+      "attn_correct": true
+    },
+    {
+      "file": "run8__hospital_incident__linear.npz",
+      "run_id": "8",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "45",
+      "attn_correct": true
+    },
+    {
+      "file": "run8__restaurant_fire__linear.npz",
+      "run_id": "8",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "45",
+      "attn_correct": true
+    },
+    {
+      "file": "run8__missed_flight__linear.npz",
+      "run_id": "8",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "45",
+      "attn_correct": true
+    },
+    {
+      "file": "run8__power_cut__linear.npz",
+      "run_id": "8",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "45",
+      "attn_correct": true
+    },
+    {
+      "file": "run11__missed_flight__nonlinear.npz",
+      "run_id": "11",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "37",
+      "attn_correct": true
+    },
+    {
+      "file": "run11__hospital_incident__nonlinear.npz",
+      "run_id": "11",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "37",
+      "attn_correct": true
+    },
+    {
+      "file": "run11__power_cut__nonlinear.npz",
+      "run_id": "11",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "37",
+      "attn_correct": true
+    },
+    {
+      "file": "run11__community_fair__nonlinear.npz",
+      "run_id": "11",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "37",
+      "attn_correct": true
+    },
+    {
+      "file": "run12__missed_flight__nonlinear.npz",
+      "run_id": "12",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "7",
+      "attn_correct": true
+    },
+    {
+      "file": "run12__hospital_incident__nonlinear.npz",
+      "run_id": "12",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "7",
+      "attn_correct": true
+    },
+    {
+      "file": "run12__power_cut__nonlinear.npz",
+      "run_id": "12",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "7",
+      "attn_correct": true
+    },
+    {
+      "file": "run12__school_trip__nonlinear.npz",
+      "run_id": "12",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "7",
+      "attn_correct": true
+    },
+    {
+      "file": "run15__restaurant_fire__linear.npz",
+      "run_id": "15",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "36",
+      "attn_correct": true
+    },
+    {
+      "file": "run15__school_trip__linear.npz",
+      "run_id": "15",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "36",
+      "attn_correct": true
+    },
+    {
+      "file": "run15__community_fair__linear.npz",
+      "run_id": "15",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "36",
+      "attn_correct": true
+    },
+    {
+      "file": "run15__hospital_incident__linear.npz",
+      "run_id": "15",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "36",
+      "attn_correct": true
+    },
+    {
+      "file": "run16__community_fair__linear.npz",
+      "run_id": "16",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "48",
+      "attn_correct": true
+    },
+    {
+      "file": "run16__restaurant_fire__linear.npz",
+      "run_id": "16",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "48",
+      "attn_correct": true
+    },
+    {
+      "file": "run16__power_cut__linear.npz",
+      "run_id": "16",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "48",
+      "attn_correct": true
+    },
+    {
+      "file": "run16__school_trip__linear.npz",
+      "run_id": "16",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "48",
+      "attn_correct": true
+    },
+    {
+      "file": "run17__hospital_incident__linear.npz",
+      "run_id": "17",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "57",
+      "attn_correct": true
+    },
+    {
+      "file": "run17__school_trip__linear.npz",
+      "run_id": "17",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "57",
+      "attn_correct": true
+    },
+    {
+      "file": "run17__missed_flight__linear.npz",
+      "run_id": "17",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "57",
+      "attn_correct": true
+    },
+    {
+      "file": "run17__power_cut__linear.npz",
+      "run_id": "17",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "57",
+      "attn_correct": true
+    },
+    {
+      "file": "run18__missed_flight__linear.npz",
+      "run_id": "18",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "0",
+      "attn_correct": true
+    },
+    {
+      "file": "run18__community_fair__linear.npz",
+      "run_id": "18",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "0",
+      "attn_correct": true
+    },
+    {
+      "file": "run18__power_cut__linear.npz",
+      "run_id": "18",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "0",
+      "attn_correct": true
+    },
+    {
+      "file": "run18__restaurant_fire__linear.npz",
+      "run_id": "18",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "0",
+      "attn_correct": true
+    },
+    {
+      "file": "run19__school_trip__linear.npz",
+      "run_id": "19",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "51",
+      "attn_correct": true
+    },
+    {
+      "file": "run19__power_cut__linear.npz",
+      "run_id": "19",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "51",
+      "attn_correct": true
+    },
+    {
+      "file": "run19__restaurant_fire__linear.npz",
+      "run_id": "19",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "51",
+      "attn_correct": true
+    },
+    {
+      "file": "run19__community_fair__linear.npz",
+      "run_id": "19",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "51",
+      "attn_correct": true
+    },
+    {
+      "file": "run22__hospital_incident__linear.npz",
+      "run_id": "22",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "6",
+      "attn_correct": true
+    },
+    {
+      "file": "run22__community_fair__linear.npz",
+      "run_id": "22",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "6",
+      "attn_correct": true
+    },
+    {
+      "file": "run22__missed_flight__linear.npz",
+      "run_id": "22",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "6",
+      "attn_correct": true
+    },
+    {
+      "file": "run22__power_cut__linear.npz",
+      "run_id": "22",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "6",
+      "attn_correct": true
+    },
+    {
+      "file": "run23__hospital_incident__linear.npz",
+      "run_id": "23",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "15",
+      "attn_correct": true
+    },
+    {
+      "file": "run23__community_fair__linear.npz",
+      "run_id": "23",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "15",
+      "attn_correct": true
+    },
+    {
+      "file": "run23__missed_flight__linear.npz",
+      "run_id": "23",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "15",
+      "attn_correct": true
+    },
+    {
+      "file": "run23__school_trip__linear.npz",
+      "run_id": "23",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "15",
+      "attn_correct": true
+    },
+    {
+      "file": "run24__restaurant_fire__atemporal.npz",
+      "run_id": "24",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "44",
+      "attn_correct": true
+    },
+    {
+      "file": "run24__school_trip__atemporal.npz",
+      "run_id": "24",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "44",
+      "attn_correct": true
+    },
+    {
+      "file": "run24__hospital_incident__atemporal.npz",
+      "run_id": "24",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "44",
+      "attn_correct": true
+    },
+    {
+      "file": "run24__missed_flight__atemporal.npz",
+      "run_id": "24",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "44",
+      "attn_correct": true
+    },
+    {
+      "file": "run26__power_cut__atemporal.npz",
+      "run_id": "26",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "56",
+      "attn_correct": true
+    },
+    {
+      "file": "run26__missed_flight__atemporal.npz",
+      "run_id": "26",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "56",
+      "attn_correct": true
+    },
+    {
+      "file": "run26__restaurant_fire__atemporal.npz",
+      "run_id": "26",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "56",
+      "attn_correct": true
+    },
+    {
+      "file": "run26__community_fair__atemporal.npz",
+      "run_id": "26",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "56",
+      "attn_correct": true
+    },
+    {
+      "file": "run28__power_cut__nonlinear.npz",
+      "run_id": "28",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "46",
+      "attn_correct": true
+    },
+    {
+      "file": "run28__hospital_incident__nonlinear.npz",
+      "run_id": "28",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "46",
+      "attn_correct": true
+    },
+    {
+      "file": "run28__restaurant_fire__nonlinear.npz",
+      "run_id": "28",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "46",
+      "attn_correct": true
+    },
+    {
+      "file": "run28__community_fair__nonlinear.npz",
+      "run_id": "28",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "46",
+      "attn_correct": true
+    },
+    {
+      "file": "run29__community_fair__atemporal.npz",
+      "run_id": "29",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "41",
+      "attn_correct": true
+    },
+    {
+      "file": "run29__school_trip__atemporal.npz",
+      "run_id": "29",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "41",
+      "attn_correct": true
+    },
+    {
+      "file": "run29__hospital_incident__atemporal.npz",
+      "run_id": "29",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "41",
+      "attn_correct": true
+    },
+    {
+      "file": "run29__power_cut__atemporal.npz",
+      "run_id": "29",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "41",
+      "attn_correct": true
+    },
+    {
+      "file": "run32__restaurant_fire__nonlinear.npz",
+      "run_id": "32",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "13",
+      "attn_correct": true
+    },
+    {
+      "file": "run32__missed_flight__nonlinear.npz",
+      "run_id": "32",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "13",
+      "attn_correct": true
+    },
+    {
+      "file": "run32__community_fair__nonlinear.npz",
+      "run_id": "32",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "13",
+      "attn_correct": true
+    },
+    {
+      "file": "run32__hospital_incident__nonlinear.npz",
+      "run_id": "32",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "13",
+      "attn_correct": true
+    },
+    {
+      "file": "run34__missed_flight__atemporal.npz",
+      "run_id": "34",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "50",
+      "attn_correct": true
+    },
+    {
+      "file": "run34__hospital_incident__atemporal.npz",
+      "run_id": "34",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "50",
+      "attn_correct": true
+    },
+    {
+      "file": "run34__power_cut__atemporal.npz",
+      "run_id": "34",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "50",
+      "attn_correct": true
+    },
+    {
+      "file": "run34__restaurant_fire__atemporal.npz",
+      "run_id": "34",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "50",
+      "attn_correct": true
+    },
+    {
+      "file": "run35__power_cut__atemporal.npz",
+      "run_id": "35",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "35",
+      "attn_correct": true
+    },
+    {
+      "file": "run35__missed_flight__atemporal.npz",
+      "run_id": "35",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "35",
+      "attn_correct": true
+    },
+    {
+      "file": "run35__school_trip__atemporal.npz",
+      "run_id": "35",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "35",
+      "attn_correct": true
+    },
+    {
+      "file": "run35__hospital_incident__atemporal.npz",
+      "run_id": "35",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "35",
+      "attn_correct": true
+    },
+    {
+      "file": "run42__hospital_incident__linear.npz",
+      "run_id": "42",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "21",
+      "attn_correct": true
+    },
+    {
+      "file": "run42__community_fair__linear.npz",
+      "run_id": "42",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "21",
+      "attn_correct": true
+    },
+    {
+      "file": "run42__school_trip__linear.npz",
+      "run_id": "42",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "21",
+      "attn_correct": true
+    },
+    {
+      "file": "run42__restaurant_fire__linear.npz",
+      "run_id": "42",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "21",
+      "attn_correct": true
+    },
+    {
+      "file": "run44__power_cut__nonlinear.npz",
+      "run_id": "44",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "10",
+      "attn_correct": true
+    },
+    {
+      "file": "run44__hospital_incident__nonlinear.npz",
+      "run_id": "44",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "10",
+      "attn_correct": true
+    },
+    {
+      "file": "run44__school_trip__nonlinear.npz",
+      "run_id": "44",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "10",
+      "attn_correct": true
+    },
+    {
+      "file": "run44__community_fair__nonlinear.npz",
+      "run_id": "44",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "10",
+      "attn_correct": true
+    },
+    {
+      "file": "run45__restaurant_fire__atemporal.npz",
+      "run_id": "45",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "29",
+      "attn_correct": true
+    },
+    {
+      "file": "run45__power_cut__atemporal.npz",
+      "run_id": "45",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "29",
+      "attn_correct": true
+    },
+    {
+      "file": "run45__hospital_incident__atemporal.npz",
+      "run_id": "45",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "29",
+      "attn_correct": true
+    },
+    {
+      "file": "run45__missed_flight__atemporal.npz",
+      "run_id": "45",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "29",
+      "attn_correct": true
+    },
+    {
+      "file": "run46__power_cut__atemporal.npz",
+      "run_id": "46",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "38",
+      "attn_correct": true
+    },
+    {
+      "file": "run46__missed_flight__atemporal.npz",
+      "run_id": "46",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "38",
+      "attn_correct": true
+    },
+    {
+      "file": "run46__school_trip__atemporal.npz",
+      "run_id": "46",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "38",
+      "attn_correct": true
+    },
+    {
+      "file": "run46__community_fair__atemporal.npz",
+      "run_id": "46",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "38",
+      "attn_correct": true
+    },
+    {
+      "file": "run48__school_trip__atemporal.npz",
+      "run_id": "48",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "20",
+      "attn_correct": true
+    },
+    {
+      "file": "run48__power_cut__atemporal.npz",
+      "run_id": "48",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "20",
+      "attn_correct": true
+    },
+    {
+      "file": "run48__restaurant_fire__atemporal.npz",
+      "run_id": "48",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "20",
+      "attn_correct": true
+    },
+    {
+      "file": "run48__hospital_incident__atemporal.npz",
+      "run_id": "48",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "20",
+      "attn_correct": true
+    },
+    {
+      "file": "run49__hospital_incident__atemporal.npz",
+      "run_id": "49",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "17",
+      "attn_correct": true
+    },
+    {
+      "file": "run49__restaurant_fire__atemporal.npz",
+      "run_id": "49",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "17",
+      "attn_correct": true
+    },
+    {
+      "file": "run49__missed_flight__atemporal.npz",
+      "run_id": "49",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "17",
+      "attn_correct": true
+    },
+    {
+      "file": "run49__school_trip__atemporal.npz",
+      "run_id": "49",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "17",
+      "attn_correct": true
+    },
+    {
+      "file": "run51__school_trip__atemporal.npz",
+      "run_id": "51",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "2",
+      "attn_correct": true
+    },
+    {
+      "file": "run51__missed_flight__atemporal.npz",
+      "run_id": "51",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "2",
+      "attn_correct": true
+    },
+    {
+      "file": "run51__community_fair__atemporal.npz",
+      "run_id": "51",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "2",
+      "attn_correct": true
+    },
+    {
+      "file": "run51__hospital_incident__atemporal.npz",
+      "run_id": "51",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "2",
+      "attn_correct": true
+    },
+    {
+      "file": "run54__restaurant_fire__nonlinear.npz",
+      "run_id": "54",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "28",
+      "attn_correct": true
+    },
+    {
+      "file": "run54__school_trip__nonlinear.npz",
+      "run_id": "54",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "28",
+      "attn_correct": true
+    },
+    {
+      "file": "run54__hospital_incident__nonlinear.npz",
+      "run_id": "54",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "28",
+      "attn_correct": true
+    },
+    {
+      "file": "run54__power_cut__nonlinear.npz",
+      "run_id": "54",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "28",
+      "attn_correct": true
+    },
+    {
+      "file": "run55__school_trip__nonlinear.npz",
+      "run_id": "55",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "25",
+      "attn_correct": true
+    },
+    {
+      "file": "run55__missed_flight__nonlinear.npz",
+      "run_id": "55",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "25",
+      "attn_correct": true
+    },
+    {
+      "file": "run55__restaurant_fire__nonlinear.npz",
+      "run_id": "55",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "25",
+      "attn_correct": true
+    },
+    {
+      "file": "run55__community_fair__nonlinear.npz",
+      "run_id": "55",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "25",
+      "attn_correct": true
+    },
+    {
+      "file": "run60__power_cut__nonlinear.npz",
+      "run_id": "60",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "58",
+      "attn_correct": true
+    },
+    {
+      "file": "run60__missed_flight__nonlinear.npz",
+      "run_id": "60",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "58",
+      "attn_correct": true
+    },
+    {
+      "file": "run60__school_trip__nonlinear.npz",
+      "run_id": "60",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "58",
+      "attn_correct": true
+    },
+    {
+      "file": "run60__restaurant_fire__nonlinear.npz",
+      "run_id": "60",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "58",
+      "attn_correct": true
+    },
+    {
+      "file": "run63__hospital_incident__linear.npz",
+      "run_id": "63",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "12",
+      "attn_correct": true
+    },
+    {
+      "file": "run63__community_fair__linear.npz",
+      "run_id": "63",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "12",
+      "attn_correct": true
+    },
+    {
+      "file": "run63__power_cut__linear.npz",
+      "run_id": "63",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "12",
+      "attn_correct": true
+    },
+    {
+      "file": "run63__restaurant_fire__linear.npz",
+      "run_id": "63",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "12",
+      "attn_correct": true
+    },
+    {
+      "file": "run67__restaurant_fire__nonlinear.npz",
+      "run_id": "67",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "1",
+      "attn_correct": true
+    },
+    {
+      "file": "run67__school_trip__nonlinear.npz",
+      "run_id": "67",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "1",
+      "attn_correct": true
+    },
+    {
+      "file": "run67__community_fair__nonlinear.npz",
+      "run_id": "67",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "1",
+      "attn_correct": true
+    },
+    {
+      "file": "run67__missed_flight__nonlinear.npz",
+      "run_id": "67",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "1",
+      "attn_correct": true
+    },
+    {
+      "file": "run69__school_trip__nonlinear.npz",
+      "run_id": "69",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "4",
+      "attn_correct": true
+    },
+    {
+      "file": "run69__hospital_incident__nonlinear.npz",
+      "run_id": "69",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "4",
+      "attn_correct": true
+    },
+    {
+      "file": "run69__restaurant_fire__nonlinear.npz",
+      "run_id": "69",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "4",
+      "attn_correct": true
+    },
+    {
+      "file": "run69__community_fair__nonlinear.npz",
+      "run_id": "69",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "4",
+      "attn_correct": true
+    },
+    {
+      "file": "run70__missed_flight__linear.npz",
+      "run_id": "70",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "3",
+      "attn_correct": true
+    },
+    {
+      "file": "run70__restaurant_fire__linear.npz",
+      "run_id": "70",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "3",
+      "attn_correct": true
+    },
+    {
+      "file": "run70__power_cut__linear.npz",
+      "run_id": "70",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "3",
+      "attn_correct": true
+    },
+    {
+      "file": "run70__school_trip__linear.npz",
+      "run_id": "70",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "3",
+      "attn_correct": true
+    },
+    {
+      "file": "run71__community_fair__linear.npz",
+      "run_id": "71",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "27",
+      "attn_correct": true
+    },
+    {
+      "file": "run71__school_trip__linear.npz",
+      "run_id": "71",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "27",
+      "attn_correct": true
+    },
+    {
+      "file": "run71__missed_flight__linear.npz",
+      "run_id": "71",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "27",
+      "attn_correct": true
+    },
+    {
+      "file": "run71__power_cut__linear.npz",
+      "run_id": "71",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "27",
+      "attn_correct": true
+    },
+    {
+      "file": "run72__missed_flight__nonlinear.npz",
+      "run_id": "72",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "43",
+      "attn_correct": true
+    },
+    {
+      "file": "run72__hospital_incident__nonlinear.npz",
+      "run_id": "72",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "43",
+      "attn_correct": true
+    },
+    {
+      "file": "run72__school_trip__nonlinear.npz",
+      "run_id": "72",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "43",
+      "attn_correct": true
+    },
+    {
+      "file": "run72__restaurant_fire__nonlinear.npz",
+      "run_id": "72",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "43",
+      "attn_correct": true
+    },
+    {
+      "file": "run76__school_trip__atemporal.npz",
+      "run_id": "76",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "53",
+      "attn_correct": true
+    },
+    {
+      "file": "run76__power_cut__atemporal.npz",
+      "run_id": "76",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "53",
+      "attn_correct": true
+    },
+    {
+      "file": "run76__community_fair__atemporal.npz",
+      "run_id": "76",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "53",
+      "attn_correct": true
+    },
+    {
+      "file": "run76__hospital_incident__atemporal.npz",
+      "run_id": "76",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "53",
+      "attn_correct": true
+    },
+    {
+      "file": "run78__community_fair__nonlinear.npz",
+      "run_id": "78",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "40",
+      "attn_correct": true
+    },
+    {
+      "file": "run78__power_cut__nonlinear.npz",
+      "run_id": "78",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "40",
+      "attn_correct": true
+    },
+    {
+      "file": "run78__hospital_incident__nonlinear.npz",
+      "run_id": "78",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "40",
+      "attn_correct": true
+    },
+    {
+      "file": "run78__missed_flight__nonlinear.npz",
+      "run_id": "78",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "40",
+      "attn_correct": true
+    },
+    {
+      "file": "run79__community_fair__atemporal.npz",
+      "run_id": "79",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "23",
+      "attn_correct": true
+    },
+    {
+      "file": "run79__restaurant_fire__atemporal.npz",
+      "run_id": "79",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "23",
+      "attn_correct": true
+    },
+    {
+      "file": "run79__hospital_incident__atemporal.npz",
+      "run_id": "79",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "23",
+      "attn_correct": true
+    },
+    {
+      "file": "run79__school_trip__atemporal.npz",
+      "run_id": "79",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "23",
+      "attn_correct": true
+    },
+    {
+      "file": "run81__restaurant_fire__atemporal.npz",
+      "run_id": "81",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "14",
+      "attn_correct": true
+    },
+    {
+      "file": "run81__power_cut__atemporal.npz",
+      "run_id": "81",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "14",
+      "attn_correct": true
+    },
+    {
+      "file": "run81__community_fair__atemporal.npz",
+      "run_id": "81",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "14",
+      "attn_correct": true
+    },
+    {
+      "file": "run81__hospital_incident__atemporal.npz",
+      "run_id": "81",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "14",
+      "attn_correct": true
+    },
+    {
+      "file": "run82__school_trip__nonlinear.npz",
+      "run_id": "82",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "49",
+      "attn_correct": true
+    },
+    {
+      "file": "run82__power_cut__nonlinear.npz",
+      "run_id": "82",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "49",
+      "attn_correct": true
+    },
+    {
+      "file": "run82__restaurant_fire__nonlinear.npz",
+      "run_id": "82",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "49",
+      "attn_correct": true
+    },
+    {
+      "file": "run82__missed_flight__nonlinear.npz",
+      "run_id": "82",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "49",
+      "attn_correct": true
+    },
+    {
+      "file": "run83__missed_flight__nonlinear.npz",
+      "run_id": "83",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "19",
+      "attn_correct": true
+    },
+    {
+      "file": "run83__community_fair__nonlinear.npz",
+      "run_id": "83",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "19",
+      "attn_correct": true
+    },
+    {
+      "file": "run83__school_trip__nonlinear.npz",
+      "run_id": "83",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "19",
+      "attn_correct": true
+    },
+    {
+      "file": "run83__restaurant_fire__nonlinear.npz",
+      "run_id": "83",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "19",
+      "attn_correct": true
+    },
+    {
+      "file": "run84__school_trip__atemporal.npz",
+      "run_id": "84",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "8",
+      "attn_correct": true
+    },
+    {
+      "file": "run84__power_cut__atemporal.npz",
+      "run_id": "84",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "8",
+      "attn_correct": true
+    },
+    {
+      "file": "run84__community_fair__atemporal.npz",
+      "run_id": "84",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "8",
+      "attn_correct": true
+    },
+    {
+      "file": "run84__missed_flight__atemporal.npz",
+      "run_id": "84",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "8",
+      "attn_correct": true
+    },
+    {
+      "file": "run85__power_cut__nonlinear.npz",
+      "run_id": "85",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "16",
+      "attn_correct": true
+    },
+    {
+      "file": "run85__community_fair__nonlinear.npz",
+      "run_id": "85",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "16",
+      "attn_correct": true
+    },
+    {
+      "file": "run85__school_trip__nonlinear.npz",
+      "run_id": "85",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "16",
+      "attn_correct": true
+    },
+    {
+      "file": "run85__restaurant_fire__nonlinear.npz",
+      "run_id": "85",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "16",
+      "attn_correct": true
+    },
+    {
+      "file": "run86__restaurant_fire__atemporal.npz",
+      "run_id": "86",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "26",
+      "attn_correct": true
+    },
+    {
+      "file": "run86__school_trip__atemporal.npz",
+      "run_id": "86",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "26",
+      "attn_correct": true
+    },
+    {
+      "file": "run86__community_fair__atemporal.npz",
+      "run_id": "86",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "26",
+      "attn_correct": true
+    },
+    {
+      "file": "run86__power_cut__atemporal.npz",
+      "run_id": "86",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "26",
+      "attn_correct": true
+    },
+    {
+      "file": "run87__missed_flight__atemporal.npz",
+      "run_id": "87",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "5",
+      "attn_correct": true
+    },
+    {
+      "file": "run87__hospital_incident__atemporal.npz",
+      "run_id": "87",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "5",
+      "attn_correct": true
+    },
+    {
+      "file": "run87__school_trip__atemporal.npz",
+      "run_id": "87",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "5",
+      "attn_correct": true
+    },
+    {
+      "file": "run87__community_fair__atemporal.npz",
+      "run_id": "87",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "5",
+      "attn_correct": true
+    },
+    {
+      "file": "run88__missed_flight__linear.npz",
+      "run_id": "88",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "42",
+      "attn_correct": true
+    },
+    {
+      "file": "run88__community_fair__linear.npz",
+      "run_id": "88",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "42",
+      "attn_correct": true
+    },
+    {
+      "file": "run88__power_cut__linear.npz",
+      "run_id": "88",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "42",
+      "attn_correct": true
+    },
+    {
+      "file": "run88__school_trip__linear.npz",
+      "run_id": "88",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "42",
+      "attn_correct": true
+    },
+    {
+      "file": "run89__power_cut__nonlinear.npz",
+      "run_id": "89",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "34",
+      "attn_correct": true
+    },
+    {
+      "file": "run89__missed_flight__nonlinear.npz",
+      "run_id": "89",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "34",
+      "attn_correct": true
+    },
+    {
+      "file": "run89__community_fair__nonlinear.npz",
+      "run_id": "89",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "34",
+      "attn_correct": true
+    },
+    {
+      "file": "run89__hospital_incident__nonlinear.npz",
+      "run_id": "89",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "34",
+      "attn_correct": true
+    },
+    {
+      "file": "run91__community_fair__nonlinear.npz",
+      "run_id": "91",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "31",
+      "attn_correct": true
+    },
+    {
+      "file": "run91__restaurant_fire__nonlinear.npz",
+      "run_id": "91",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "31",
+      "attn_correct": true
+    },
+    {
+      "file": "run91__hospital_incident__nonlinear.npz",
+      "run_id": "91",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "31",
+      "attn_correct": true
+    },
+    {
+      "file": "run91__power_cut__nonlinear.npz",
+      "run_id": "91",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "31",
+      "attn_correct": true
+    },
+    {
+      "file": "run93__community_fair__atemporal.npz",
+      "run_id": "93",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "59",
+      "attn_correct": true
+    },
+    {
+      "file": "run93__restaurant_fire__atemporal.npz",
+      "run_id": "93",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "59",
+      "attn_correct": true
+    },
+    {
+      "file": "run93__hospital_incident__atemporal.npz",
+      "run_id": "93",
+      "story_id": "hospital_incident",
+      "condition": "atemporal",
+      "assignment_id": "59",
+      "attn_correct": true
+    },
+    {
+      "file": "run93__missed_flight__atemporal.npz",
+      "run_id": "93",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "59",
+      "attn_correct": true
+    },
+    {
+      "file": "run95__school_trip__nonlinear.npz",
+      "run_id": "95",
+      "story_id": "school_trip",
+      "condition": "nonlinear",
+      "assignment_id": "55",
+      "attn_correct": true
+    },
+    {
+      "file": "run95__power_cut__nonlinear.npz",
+      "run_id": "95",
+      "story_id": "power_cut",
+      "condition": "nonlinear",
+      "assignment_id": "55",
+      "attn_correct": true
+    },
+    {
+      "file": "run95__hospital_incident__nonlinear.npz",
+      "run_id": "95",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "55",
+      "attn_correct": true
+    },
+    {
+      "file": "run95__missed_flight__nonlinear.npz",
+      "run_id": "95",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "55",
+      "attn_correct": true
+    },
+    {
+      "file": "run96__restaurant_fire__atemporal.npz",
+      "run_id": "96",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "32",
+      "attn_correct": true
+    },
+    {
+      "file": "run96__school_trip__atemporal.npz",
+      "run_id": "96",
+      "story_id": "school_trip",
+      "condition": "atemporal",
+      "assignment_id": "32",
+      "attn_correct": true
+    },
+    {
+      "file": "run96__missed_flight__atemporal.npz",
+      "run_id": "96",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "32",
+      "attn_correct": true
+    },
+    {
+      "file": "run96__power_cut__atemporal.npz",
+      "run_id": "96",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "32",
+      "attn_correct": true
+    },
+    {
+      "file": "run97__hospital_incident__linear.npz",
+      "run_id": "97",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "24",
+      "attn_correct": true
+    },
+    {
+      "file": "run97__community_fair__linear.npz",
+      "run_id": "97",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "24",
+      "attn_correct": true
+    },
+    {
+      "file": "run97__power_cut__linear.npz",
+      "run_id": "97",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "24",
+      "attn_correct": true
+    },
+    {
+      "file": "run97__school_trip__linear.npz",
+      "run_id": "97",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "24",
+      "attn_correct": true
+    },
+    {
+      "file": "run98__community_fair__linear.npz",
+      "run_id": "98",
+      "story_id": "community_fair",
+      "condition": "linear",
+      "assignment_id": "18",
+      "attn_correct": true
+    },
+    {
+      "file": "run98__restaurant_fire__linear.npz",
+      "run_id": "98",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "18",
+      "attn_correct": true
+    },
+    {
+      "file": "run98__missed_flight__linear.npz",
+      "run_id": "98",
+      "story_id": "missed_flight",
+      "condition": "linear",
+      "assignment_id": "18",
+      "attn_correct": true
+    },
+    {
+      "file": "run98__school_trip__linear.npz",
+      "run_id": "98",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "18",
+      "attn_correct": true
+    },
+    {
+      "file": "run99__community_fair__atemporal.npz",
+      "run_id": "99",
+      "story_id": "community_fair",
+      "condition": "atemporal",
+      "assignment_id": "47",
+      "attn_correct": true
+    },
+    {
+      "file": "run99__restaurant_fire__atemporal.npz",
+      "run_id": "99",
+      "story_id": "restaurant_fire",
+      "condition": "atemporal",
+      "assignment_id": "47",
+      "attn_correct": true
+    },
+    {
+      "file": "run99__missed_flight__atemporal.npz",
+      "run_id": "99",
+      "story_id": "missed_flight",
+      "condition": "atemporal",
+      "assignment_id": "47",
+      "attn_correct": true
+    },
+    {
+      "file": "run99__power_cut__atemporal.npz",
+      "run_id": "99",
+      "story_id": "power_cut",
+      "condition": "atemporal",
+      "assignment_id": "47",
+      "attn_correct": true
+    },
+    {
+      "file": "run100__missed_flight__nonlinear.npz",
+      "run_id": "100",
+      "story_id": "missed_flight",
+      "condition": "nonlinear",
+      "assignment_id": "52",
+      "attn_correct": true
+    },
+    {
+      "file": "run100__hospital_incident__nonlinear.npz",
+      "run_id": "100",
+      "story_id": "hospital_incident",
+      "condition": "nonlinear",
+      "assignment_id": "52",
+      "attn_correct": true
+    },
+    {
+      "file": "run100__restaurant_fire__nonlinear.npz",
+      "run_id": "100",
+      "story_id": "restaurant_fire",
+      "condition": "nonlinear",
+      "assignment_id": "52",
+      "attn_correct": true
+    },
+    {
+      "file": "run100__community_fair__nonlinear.npz",
+      "run_id": "100",
+      "story_id": "community_fair",
+      "condition": "nonlinear",
+      "assignment_id": "52",
+      "attn_correct": true
+    },
+    {
+      "file": "run101__power_cut__linear.npz",
+      "run_id": "101",
+      "story_id": "power_cut",
+      "condition": "linear",
+      "assignment_id": "33",
+      "attn_correct": true
+    },
+    {
+      "file": "run101__hospital_incident__linear.npz",
+      "run_id": "101",
+      "story_id": "hospital_incident",
+      "condition": "linear",
+      "assignment_id": "33",
+      "attn_correct": true
+    },
+    {
+      "file": "run101__school_trip__linear.npz",
+      "run_id": "101",
+      "story_id": "school_trip",
+      "condition": "linear",
+      "assignment_id": "33",
+      "attn_correct": true
+    },
+    {
+      "file": "run101__restaurant_fire__linear.npz",
+      "run_id": "101",
+      "story_id": "restaurant_fire",
+      "condition": "linear",
+      "assignment_id": "33",
+      "attn_correct": true
+    }
+  ]
+}

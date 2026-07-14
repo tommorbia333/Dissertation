@@ -1,0 +1,22 @@
+{
+  "author": {
+    "linear": 1.0,
+    "nonlinear": 1.0,
+    "atemporal": 1.0
+  },
+  "behavioural": {
+    "linear": 0.12213616404781949,
+    "nonlinear": 0.03379090968977923,
+    "atemporal": 0.06199773039843444
+  },
+  "prompted": {
+    "linear": 0.15929841838368014,
+    "nonlinear": 0.11957243807994344,
+    "atemporal": 0.07004381665985479
+  },
+  "reading": {
+    "linear": 0.11583720301772693,
+    "nonlinear": 0.09075173800311259,
+    "atemporal": 0.13410446373014148
+  }
+}
