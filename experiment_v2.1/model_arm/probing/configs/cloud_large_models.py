@@ -5,7 +5,9 @@ local 24GB Apple Silicon box.
 qwen14b-base needs ~28GB (fits a 40GB+ GPU); qwen32b-base needs ~64GB (needs
 an 80GB GPU with headroom). No code changes are required to run this on CUDA:
 ``models_probing.pick_device`` / ``pick_dtype`` already auto-detect CUDA and
-pick fp16. Just launch on a box with enough VRAM and run:
+pick bf16 (the precision Qwen2.5 was trained in -- fp16 overflows to NaN on the
+14B/32B activations, so bf16 is required, not just preferred). Just launch on a
+box with enough VRAM and run:
 
     cd experiment_v2.1/model_arm/probing
     python run_probing.py cloud_large_models

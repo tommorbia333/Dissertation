@@ -74,6 +74,14 @@ def answer_and_state(model, tok, device, prompt, dids, scale_max):
     ps = ps / ps.sum() if ps.sum() > 0 else np.ones_like(ps) / len(ps)
     ans = float((ks * ps).sum())
     state = np.stack([hs[0, -1].float().cpu().numpy() for hs in out.hidden_states])
+    # Compute is bf16 (fp32-range) but pstate is stored fp16 to keep the
+    # per-layer, per-pair archive small. A genuine massive activation can exceed
+    # the fp16 ceiling (65504) and would become +/-inf on downcast, re-poisoning
+    # the very probes this whole change fixes; clamp to the fp16 finite range
+    # first. These dims are near-constant across pairs and get standardised out
+    # by the probe ridge, so clamping is benign.
+    finfo = np.finfo(np.float16)
+    state = np.clip(state, finfo.min, finfo.max)
     return ans, state.astype(np.float16)
 
 

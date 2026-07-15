@@ -91,11 +91,28 @@ def pick_device(device: str | None = None) -> str:
 
 
 def pick_dtype(device: str, dtype: str | None = None):
-    """fp16 on GPU (MPS/CUDA), fp32 on CPU. Override with an explicit dtype name."""
+    """bf16 on CUDA, fp16 on MPS, fp32 on CPU. Override with an explicit dtype name.
+
+    Qwen2.5 (like Qwen2/Qwen3 and Llama) is trained in bfloat16. Running the
+    larger variants in float16 overflows the fp16 range (max 65504) in the
+    massive-activation / attention-weight dimensions, producing ``inf`` that
+    propagates through the residual stream to ``NaN`` across every layer and the
+    whole sequence -- which silently turned every 14B/32B probe result into NaN.
+    See https://qwen.readthedocs.io (Troubleshooting) and QwenLM/Qwen2.5#868.
+    bf16 has the same 16-bit footprint but fp32's exponent range, so it is the
+    correct GPU precision here; every target GPU (A100/H100 80GB) supports it.
+
+    MPS stays fp16 because bf16 support there is less mature and the local box
+    only ever runs <=7B, where fp16 does not overflow (verified: max |act| ~283).
+    """
     import torch
     if dtype:
         return getattr(torch, dtype)
-    return torch.float16 if device in ("mps", "cuda") else torch.float32
+    if device == "cuda":
+        return torch.bfloat16
+    if device == "mps":
+        return torch.float16
+    return torch.float32
 
 
 def load_model(model_id: str, *, device: str | None = None, dtype: str | None = None):
