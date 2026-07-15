@@ -232,7 +232,6 @@ def plot_event_planes(X, y, g, g_to_key, layer=None, metric="euclidean", out=Non
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from matplotlib import cm
 
     n_layers = next(iter(X.values())).shape[1]
     L = (n_layers - 1) if layer is None else layer
@@ -242,7 +241,7 @@ def plot_event_planes(X, y, g, g_to_key, layer=None, metric="euclidean", out=Non
 
     ink = "#2b2b2b"
     path_grey = "#b8b8b8"
-    cmap = cm.get_cmap("viridis")
+    cmap = matplotlib.colormaps["viridis"]
     fig, axes = plt.subplots(len(CONDITIONS), n_stories,
                              figsize=(2.05 * n_stories, 2.25 * len(CONDITIONS)),
                              squeeze=False)

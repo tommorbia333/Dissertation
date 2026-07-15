@@ -28,6 +28,14 @@ env/
 # Nested git repos
 Project_Files/.git/
 
+# Secrets / SSH keys
+sshkeys
+sshkeys.pub
+*.pem
+id_rsa*
+id_ed25519*
+.env
+
 # Misc
 PUSH_TO_GITHUB.md
 node_modules/

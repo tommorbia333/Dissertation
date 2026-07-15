@@ -32,6 +32,8 @@ import warnings
 from datetime import datetime
 from pathlib import Path
 
+import numpy as np
+
 # macOS numpy (Apple Accelerate BLAS) raises spurious "divide by zero" /
 # "overflow" / "invalid value ... in matmul" RuntimeWarnings on the
 # heavily rank-deficient design matrices the causal-RDM Ridge fits use
@@ -74,6 +76,20 @@ def _resolve_analyses(config: dict) -> list[str]:
 
 
 def _make_run_dir(root: Path, run_id: str) -> Path:
+    """Create a fresh timestamped run directory, unless PROBING_RESUME_RUN_DIR
+    is set, in which case that exact directory is reused (created if missing)
+    so ``skip_existing`` can actually skip models/behavioural passes already
+    completed in an earlier invocation that crashed partway through (e.g. disk
+    full mid-download). Each ``python run_probing.py <config>`` call otherwise
+    starts a brand-new directory, so skip_existing only ever helps *within*
+    one continuous run across the models list, never across separate retries.
+    """
+    import os
+    resume = os.environ.get("PROBING_RESUME_RUN_DIR")
+    if resume:
+        run_dir = Path(resume)
+        run_dir.mkdir(parents=True, exist_ok=True)
+        return run_dir
     root.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     run_dir = root / f"run_{stamp}_{run_id}"
@@ -153,12 +169,13 @@ def run_config(config: dict) -> Path:
         if "pairwise_probe" in analyses:
             print("\n--- pairwise probe ---")
             P.pairwise_probe(X, y, g, temporal_labels, g_to_key, mdir / "pairwise_probe")
+        causal_extra_result = None
         if "causal_rdm" in analyses:
             print("\n--- causal RDM ---")
             P.causal_rdm(X, y, g, author, g_to_key, mdir / "causal_rdm")
         if "causal_rdm_extra" in analyses:
             print("\n--- causal RDM (diagnostic metrics) ---")
-            P.causal_rdm_extra(X, y, g, author, g_to_key, mdir / "causal_rdm")
+            causal_extra_result = P.causal_rdm_extra(X, y, g, author, g_to_key, mdir / "causal_rdm")
         if "geometry" in analyses:
             print("\n--- geometry / cyclicity ---")
             G.run_geometry(X, y, g, g_to_key, mdir / "geometry", n_perm=n_perm)
@@ -170,6 +187,18 @@ def run_config(config: dict) -> Path:
             if not (skip_existing and behav_path.exists()):
                 B.run_behavioural(tok, model, dev, data, g_to_key, behav_path, scale_max)
             B.analyse_three_arms(behav_path, vectors_path, author, g_to_key, bdir, rep_layer)
+
+            print("\n--- prompted causal Mantel by layer ---")
+            reading_spearman = None
+            if causal_extra_result is not None:
+                reading_spearman = causal_extra_result["spearman"]
+            else:
+                extra_path = mdir / "causal_rdm" / "causal_extra_metrics.npz"
+                if extra_path.exists():
+                    extra = np.load(extra_path)
+                    reading_spearman = {c: extra[f"spearman_{c}"] for c in S.CONDITIONS
+                                        if f"spearman_{c}" in extra}
+            B.prompted_causal_mantel_by_layer(behav_path, author, g_to_key, bdir, reading_spearman)
 
         per_model.append({"model_key": model_key, "model_id": model_id, "dir": str(mdir)})
 

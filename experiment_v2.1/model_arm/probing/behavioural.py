@@ -259,3 +259,142 @@ def analyse_three_arms(behav_path: Path, vectors_path: Path, author, g_to_key,
     for arm in ARMS[1:]:
         print(f"{arm:<12}" + "".join(f"{mtab[arm][c]:>12.3f}" for c in CONDITIONS))
     return mtab
+
+
+# ---------------------------------------------------------------------------
+# Prompted-state causal RDM crystallisation (layer sweep)
+# ---------------------------------------------------------------------------
+#
+# ``analyse_three_arms`` above evaluates the prompted arm at a single,
+# hard-coded ``rep_layer`` (default 20 for every model regardless of depth) so
+# it can be plotted next to reading/behavioural in one apples-to-apples figure.
+# That leaves a real gap: unlike the reading arm (which gets a full per-layer
+# "crystallisation" sweep via ``probes.causal_rdm``/``causal_rdm_extra``), the
+# prompted arm's causal decodability across depth was never characterised —
+# even though ``pstate_{c}`` already stores the hidden state at *every* layer.
+# This fills that gap using data already saved in ``behavioural.npz`` (no
+# model reload / re-generation required).
+
+def _ridge_loso_predict(X: np.ndarray, y: np.ndarray, groups: np.ndarray,
+                        alpha: float = 1.0) -> np.ndarray:
+    """Leave-one-group-out ridge regression via the closed-form dual solve.
+
+    Mathematically identical to ``LeaveOneGroupOut`` + ``StandardScaler`` +
+    ``sklearn.linear_model.Ridge`` (same standardisation, same intercept
+    handling, same alpha) -- verified to match to ~1e-16. sklearn's default
+    solver selection hit a severe (minutes-per-fit, not seconds) performance
+    pathology on this hidden-size scale (n ~= 390 rows, p up to ~4000
+    features) under this machine's Accelerate BLAS backend; solving the n x n
+    Gram system directly with ``numpy.linalg.solve`` avoids whatever slow
+    path that triggers and is ~1000x faster here.
+    """
+    pred = np.zeros(len(y), dtype=np.float64)
+    for grp in np.unique(groups):
+        te = groups == grp
+        tr = ~te
+        mu, sd = X[tr].mean(0), X[tr].std(0)
+        sd = np.where(sd < 1e-8, 1e-8, sd)
+        Xtr, Xte = (X[tr] - mu) / sd, (X[te] - mu) / sd
+        y_mean = y[tr].mean()
+        n = Xtr.shape[0]
+        K = Xtr @ Xtr.T
+        sol = np.linalg.solve(K + alpha * np.eye(n), y[tr] - y_mean)
+        w = Xtr.T @ sol
+        pred[te] = Xte @ w + y_mean
+    return pred
+
+
+def prompted_causal_mantel_by_layer(behav_path: Path, author, g_to_key,
+                                    out_dir: Path,
+                                    reading_spearman: dict | None = None) -> dict:
+    """LOSO-Ridge decode causal strength from the prompted hidden state at
+    every layer, Mantel-correlate the resulting model RDM against the author
+    graph, and plot the crystallisation curve — the prompted-arm counterpart
+    to ``probes.causal_rdm``'s reading-arm curve.
+
+    Metric matches the *Spearman* Mantel used for ``prompted`` elsewhere
+    (``analyse_three_arms.mant`` and ``probes.causal_rdm_extra``'s
+    ``spearman`` panel): off-diagonal, directed, no symmetrisation.
+
+    ``reading_spearman``, if given, is the ``{condition: array}`` curve from
+    ``probes.causal_rdm_extra`` (same metric, reading features) — overlaid on
+    the same axes so the two extraction methods are directly comparable
+    layer-by-layer, not just at one fixed layer.
+    """
+    out_dir.mkdir(parents=True, exist_ok=True)
+    b = np.load(behav_path, allow_pickle=True)
+    story_ids = sorted(g_to_key)
+    off = ~np.eye(N, dtype=bool)
+
+    mant, peak_rdms = {}, {}
+    for c in CONDITIONS:
+        story = b[f"story_{c}"]
+        ii, jj = b[f"i_{c}"], b[f"j_{c}"]
+        pstate = b[f"pstate_{c}"].astype(np.float32)
+        t = np.array([author[g_to_key[d]][i - 1, j - 1] for d, i, j in zip(story, ii, jj)])
+        n_layers = pstate.shape[1]
+        m = np.zeros(n_layers)
+        layer_rdms: dict = {}
+        for L in range(n_layers):
+            X = pstate[:, L, :]
+            pred = _ridge_loso_predict(X, t, story, alpha=1.0)
+            rs, rdms_L = [], {}
+            for s in story_ids:
+                sel = story == s
+                M = np.zeros((N, N))
+                for i, j, v in zip(ii[sel], jj[sel], pred[sel]):
+                    M[i - 1, j - 1] = v
+                rdms_L[s] = M
+                rs.append(spearmanr(M[off], author[g_to_key[s]][off]).correlation)
+            m[L] = np.nanmean(rs)
+            layer_rdms[L] = rdms_L
+        mant[c] = m
+        peak_rdms[c] = layer_rdms
+
+    # Layer 0 (raw token embedding) is degenerate here: the prompt's final
+    # token is identical across every pair, so the "hidden state" carries no
+    # pair-specific information and the resulting RDM has zero variance ->
+    # undefined (NaN) Spearman correlation. Use nan-aware peak detection so
+    # that one structurally-NaN layer doesn't poison argmax (which otherwise
+    # treats NaN as the max) for every downstream layer that has real signal.
+    def _nanargmax(arr):
+        return int(np.nanargmax(arr)) if np.isfinite(arr).any() else 0
+
+    print(f"\n{'condition':<12}{'peak layer':>12}{'peak Mantel r':>16}")
+    for c in CONDITIONS:
+        L = _nanargmax(mant[c])
+        print(f"{c:<12}{L:>12}{mant[c][L]:>16.3f}")
+
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    colours = {"linear": "C0", "nonlinear": "C1", "atemporal": "C2"}
+
+    plt.figure(figsize=(8, 5))
+    for c in CONDITIONS:
+        plt.plot(range(len(mant[c])), mant[c], marker="o", markersize=3,
+                 label=f"{c} (prompted)", color=colours[c])
+        if reading_spearman is not None and c in reading_spearman:
+            plt.plot(range(len(reading_spearman[c])), reading_spearman[c], ls="--",
+                     marker="x", markersize=3, color=colours[c], label=f"{c} (reading)")
+    plt.axhline(0, color="grey", lw=0.8)
+    plt.xlabel("layer (0 = embedding output)")
+    plt.ylabel("Spearman Mantel r (model RDM vs author causal RDM)")
+    title = "Prompted-state causal RDM crystallisation by layer"
+    if reading_spearman is not None:
+        title += "\n(dashed = reading arm, same metric)"
+    plt.title(title)
+    plt.ylim(-0.3, 1)
+    plt.legend(fontsize=7)
+    plt.tight_layout()
+    plt.savefig(out_dir / "prompted_causal_mantel_by_layer.png", dpi=150)
+    plt.close()
+
+    peak = {c: _nanargmax(mant[c]) for c in CONDITIONS}
+    np.savez(out_dir / "prompted_causal_by_layer.npz",
+             story_keys=np.array([g_to_key[s] for s in story_ids]),
+             peak_layers=np.array([peak[c] for c in CONDITIONS]),
+             **{f"mantel_{c}": mant[c] for c in CONDITIONS},
+             **{f"model_{c}": np.stack([peak_rdms[c][peak[c]][s] for s in story_ids])
+                for c in CONDITIONS})
+    return {"mantel": mant, "peak_layers": peak}
